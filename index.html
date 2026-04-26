@@ -441,6 +441,35 @@
     border-color: var(--accent);
   }
 
+  .video-btn {
+    background: transparent;
+    border: 1px solid var(--line);
+    color: var(--ink-dim);
+    font-size: 10px;
+    padding: 0;
+    width: 28px;
+    height: 28px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: all 0.15s;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+    cursor: pointer;
+    flex-shrink: 0;
+  }
+  .video-btn:hover, .video-btn:active {
+    background: var(--bg-elev);
+    color: var(--accent);
+    border-color: var(--accent-dim);
+  }
+  .video-btn svg {
+    width: 11px;
+    height: 11px;
+    fill: currentColor;
+  }
+
   .log-form {
     background: var(--bg-elev);
     border: 1px solid var(--line);
@@ -834,24 +863,37 @@
     <ul class="ex-list">
       <li class="ex-item">
         <div class="ex-name">Cossack Squat<small>warm up the hips, slow & controlled</small></div>
-        <div class="ex-right"><div class="ex-scheme">5/side</div></div>
+        <div class="ex-right">
+          <div class="ex-scheme">5/side</div>
+          <a href="https://www.youtube.com/results?search_query=cossack%20squat%20tutorial" target="_blank" rel="noopener noreferrer" class="video-btn" aria-label="Video"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></a>
+        </div>
       </li>
       <li class="ex-item">
         <div class="ex-name">Pike Fold<small>seated, fold from hips</small></div>
-        <div class="ex-right"><div class="ex-scheme">10 pulses + 30s</div></div>
+        <div class="ex-right">
+          <div class="ex-scheme">10 pulses + 30s</div>
+          <a href="https://www.youtube.com/results?search_query=pike%20fold%20flexibility%20tutorial" target="_blank" rel="noopener noreferrer" class="video-btn" aria-label="Video"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></a>
+        </div>
       </li>
       <li class="ex-item">
         <div class="ex-name">Straddle Side Fold<small>chest over each leg</small></div>
-        <div class="ex-right"><div class="ex-scheme">45s/side</div></div>
+        <div class="ex-right">
+          <div class="ex-scheme">45s/side</div>
+          <a href="https://www.youtube.com/results?search_query=straddle%20side%20fold%20stretch" target="_blank" rel="noopener noreferrer" class="video-btn" aria-label="Video"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></a>
+        </div>
       </li>
       <li class="ex-item">
         <div class="ex-name">Straddle Center Fold<small>walk hands forward</small></div>
-        <div class="ex-right"><div class="ex-scheme">60s</div></div>
+        <div class="ex-right">
+          <div class="ex-scheme">60s</div>
+          <a href="https://www.youtube.com/results?search_query=middle%20splits%20stretch%20tutorial" target="_blank" rel="noopener noreferrer" class="video-btn" aria-label="Video"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></a>
+        </div>
       </li>
       <li class="ex-item" data-log="pancake">
         <div class="ex-name"><span class="star">★</span>Pancake Hold<small>deepest position, log forearm distance to floor (cm)</small></div>
         <div class="ex-right">
           <div class="ex-scheme">60–90s</div>
+          <a href="https://www.youtube.com/results?search_query=pancake%20stretch%20tutorial" target="_blank" rel="noopener noreferrer" class="video-btn" aria-label="Video"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></a>
           <button class="log-toggle" onclick="toggleLog('pancake', this, 'cm', 'distance')">Log</button>
         </div>
       </li>
@@ -865,11 +907,17 @@
       <ul class="ex-list">
         <li class="ex-item">
           <div class="ex-name">Straddle PNF<small>push 6s → relax → fold deeper</small></div>
-          <div class="ex-right"><div class="ex-scheme">3 × 20s</div></div>
+          <div class="ex-right">
+            <div class="ex-scheme">3 × 20s</div>
+            <a href="https://www.youtube.com/results?search_query=PNF%20stretching%20straddle%20tutorial" target="_blank" rel="noopener noreferrer" class="video-btn" aria-label="Video"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></a>
+          </div>
         </li>
         <li class="ex-item">
           <div class="ex-name">Pike PNF<small>same protocol, legs together</small></div>
-          <div class="ex-right"><div class="ex-scheme">3 × 20s</div></div>
+          <div class="ex-right">
+            <div class="ex-scheme">3 × 20s</div>
+            <a href="https://www.youtube.com/results?search_query=PNF%20stretching%20pike%20fold" target="_blank" rel="noopener noreferrer" class="video-btn" aria-label="Video"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></a>
+          </div>
         </li>
       </ul>
     </div>
@@ -1436,7 +1484,7 @@
 
     let priorityHTML = plan.priority ? `<div class="priority-tag">${plan.priority}</div>` : '';
     const hasStars = plan.exercises.some(e => e.star) || (plan.abs && plan.abs.exercises.some(e => e.star));
-    let starNote = hasStars ? '<p class="star-note">★ = log this lift · tap "Log" to save weight & reps</p>' : '';
+    let starNote = hasStars ? '<p class="star-note">★ = log this lift · tap ▶ for form video · tap Log to save</p>' : '<p class="star-note">tap ▶ next to any exercise for form video</p>';
 
     container.innerHTML = `
       <div class="card hero day-content">
@@ -1454,6 +1502,9 @@
   function exerciseHTML(ex) {
     const star = ex.star ? '<span class="star">★</span>' : '';
     const sub = ex.sub ? `<small>${ex.sub}</small>` : '';
+    const vidQuery = ex.vid || (ex.name.split(' or ')[0].trim() + ' form');
+    const vidUrl = `https://www.youtube.com/results?search_query=${encodeURIComponent(vidQuery)}`;
+    const vidBtn = `<a href="${vidUrl}" target="_blank" rel="noopener noreferrer" class="video-btn" aria-label="Watch form video"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></a>`;
     const logBtn = ex.log
       ? `<button class="log-toggle ${DATA.lifts[ex.log] && DATA.lifts[ex.log].length ? 'has-data' : ''}" onclick="toggleLog('${ex.log}', this)">Log</button>`
       : '';
@@ -1462,6 +1513,7 @@
         <div class="ex-name">${star}${ex.name}${sub}</div>
         <div class="ex-right">
           <div class="ex-scheme">${ex.scheme}</div>
+          ${vidBtn}
           ${logBtn}
         </div>
       </li>`;
