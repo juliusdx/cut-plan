@@ -849,10 +849,10 @@
   <div class="card">
     <div class="card-label">The honest directive</div>
     <p class="directive">
-      4 days, well executed, beats 6 days half-done. <em>Adherence wins.</em> Use supersets to finish faster — push + pull paired so one rests while the other works.
+      4 days, well executed, beats 6 days half-done. <em>Adherence wins.</em> Main lifts get full focus — accessories use <span>antagonist supersets</span> to save time without compromising performance.
     </p>
     <div class="insight">
-      <strong>Why supersets:</strong> antagonist pairs (chest + back, biceps + triceps) cut session time 30–40% with no loss in muscle stimulus. You move more weight in less time. Main compound lifts stay traditional with full rest.
+      <strong>Hybrid superset structure:</strong> Main compound lifts (squat, bench, RDL, row) are done alone with full rest. Accessories pair non-competing muscles (e.g., glutes + chest, hamstrings + back). Each muscle gets full effort while time stays compressed.
     </div>
     <div class="insight">
       <strong>Schedule:</strong> Mon Upper A · Tue Lower A · Thu Upper B · Fri Lower B. Wed and Sat are flex (cardio, pickleball, or rest). Sunday rest. Skip a day = no catch-up, just resume.
@@ -1306,58 +1306,53 @@
     }
   }
 
-  // ============= 4-DAY PLAN =============
+  // ============= 4-DAY PLAN (Hybrid Antagonist Supersets) =============
   const PLAN = {
     1: { // Monday — Upper A
       title: 'Upper A · <em>strength</em>',
-      subtitle: 'Push + pull supersets · 60–75 min',
+      subtitle: 'Push/pull antagonist supersets · 60–75 min',
       type: 'lift',
       priority: 'Strength focus · push the main lifts',
       blocks: [
         {
           type: 'main',
           exercises: [
-            { name: 'Bench or Incline Press', sub: 'main lift, full rest', scheme: '4 × 6–8', star: true, log: 'bench', rest: '90s' }
+            { name: 'Bench or Incline Press', sub: 'main lift, full rest', scheme: '4 × 6–8', star: true, log: 'bench', rest: '90s' },
+            { name: 'Bent-over Row', sub: 'second main, full rest', scheme: '4 × 6–8', star: true, log: 'row', rest: '90s' }
           ]
         },
         {
           type: 'superset',
-          label: 'Superset A',
+          label: 'Superset A · push/pull',
           rest: '60s after both',
           exercises: [
-            { name: 'Bent-over Row', scheme: '4 × 6–8', star: true, log: 'row' },
-            { name: 'Overhead Press', scheme: '4 × 6–8', star: true, log: 'ohp' }
+            { name: 'Overhead Press', sub: 'shoulders (push)', scheme: '3 × 8–10', star: true, log: 'ohp' },
+            { name: 'Pull-ups', sub: 'lats (pull) — weighted if able', scheme: '3 × AMRAP' }
           ]
         },
         {
           type: 'superset',
-          label: 'Superset B',
+          label: 'Superset B · antagonist',
           rest: '45s after both',
           exercises: [
-            { name: 'Pull-ups', sub: 'weighted if possible', scheme: '3 × AMRAP' },
-            { name: 'Lateral Raises', scheme: '3 × 12–15' }
+            { name: 'Biceps Curl', sub: 'biceps', scheme: '3 × 10–12' },
+            { name: 'Triceps Extension', sub: 'triceps (antagonist)', scheme: '3 × 10–12' }
           ]
         },
         {
           type: 'superset',
-          label: 'Superset C',
+          label: 'Superset C · delts',
           rest: '45s after both',
           exercises: [
-            { name: 'Biceps Curl', scheme: '3 × 10–12' },
-            { name: 'Triceps Extension', scheme: '3 × 10–12' }
-          ]
-        },
-        {
-          type: 'finisher',
-          exercises: [
-            { name: 'Face Pulls', sub: 'rear delts + posture, no rest', scheme: '3 × 15' }
+            { name: 'Lateral Raises', sub: 'side delts', scheme: '3 × 12–15' },
+            { name: 'Face Pulls', sub: 'rear delts (antagonist plane)', scheme: '3 × 12–15' }
           ]
         }
       ]
     },
-    2: { // Tuesday — Lower A
+    2: { // Tuesday — Lower A (HYBRID — main lifts isolated, supersets pair legs with non-competing muscles)
       title: 'Lower A · <em>strength</em>',
-      subtitle: 'Squat-focused + heavy abs · 60–75 min',
+      subtitle: 'Squat/RDL alone · accessories antagonist · 60–75 min',
       type: 'lift',
       priority: 'Strength focus · push the squat',
       blocks: [
@@ -1365,25 +1360,32 @@
           type: 'main',
           exercises: [
             { name: 'Back or Front Squat', sub: 'main lift, full rest', scheme: '4 × 5–7', star: true, log: 'squat', rest: '120s' },
-            { name: 'Romanian Deadlift', sub: 'second main lift, full rest', scheme: '4 × 6–8', star: true, log: 'rdl', rest: '90s' }
+            { name: 'Romanian Deadlift', sub: 'second main, full rest', scheme: '4 × 6–8', star: true, log: 'rdl', rest: '90s' }
           ]
         },
         {
           type: 'superset',
-          label: 'Superset A',
+          label: 'Superset A · glutes + chest',
           rest: '60s after both',
           exercises: [
-            { name: 'Hip Thrust', scheme: '3 × 8–10' },
-            { name: 'Walking Lunges', sub: 'or Bulgarian split squat', scheme: '3 × 10/leg' }
+            { name: 'Hip Thrust', sub: 'glute-dominant', scheme: '3 × 8–10' },
+            { name: 'DB Bench Press', sub: 'light–moderate, non-competing', scheme: '3 × 10–12' }
           ]
         },
         {
           type: 'superset',
-          label: 'Superset B',
+          label: 'Superset B · hamstrings + back',
           rest: '45s after both',
           exercises: [
-            { name: 'Lying Leg Curl', scheme: '3 × 10–12' },
-            { name: 'Standing Calf Raise', scheme: '3 × 12–15' }
+            { name: 'Lying Leg Curl', sub: 'hamstrings', scheme: '3 × 10–12' },
+            { name: 'Cable Row', sub: 'mid-back (non-competing)', scheme: '3 × 10–12' }
+          ]
+        },
+        {
+          type: 'finisher',
+          exercises: [
+            { name: 'Walking Lunges', sub: 'unilateral, done alone', scheme: '3 × 10/leg' },
+            { name: 'Standing Calf Raise', sub: 'calves', scheme: '3 × 12–15' }
           ]
         }
       ],
@@ -1411,41 +1413,42 @@
     },
     4: { // Thursday — Upper B
       title: 'Upper B · <em>hypertrophy</em>',
-      subtitle: 'Higher reps · pump-focused supersets · 60–75 min',
+      subtitle: 'Higher reps · push/pull antagonists · 60–75 min',
       type: 'lift',
       priority: 'Volume focus · chase the burn',
       blocks: [
         {
           type: 'main',
           exercises: [
-            { name: 'Incline DB Press', sub: 'opposite angle from Monday', scheme: '4 × 8–10', rest: '75s' }
+            { name: 'Incline DB Press', sub: 'opposite angle from Monday', scheme: '4 × 8–10', rest: '75s' },
+            { name: 'Lat Pulldown or Cable Row', sub: 'second main', scheme: '4 × 10–12', rest: '60s' }
           ]
         },
         {
           type: 'superset',
-          label: 'Superset A',
+          label: 'Superset A · push/pull',
           rest: '60s after both',
           exercises: [
-            { name: 'Cable Row or Lat Pulldown', scheme: '4 × 10–12' },
-            { name: 'DB Shoulder Press', scheme: '3 × 10–12' }
+            { name: 'DB Shoulder Press', sub: 'shoulders (push)', scheme: '3 × 10–12' },
+            { name: 'Single-arm DB Row', sub: 'lats (pull)', scheme: '3 × 10–12' }
           ]
         },
         {
           type: 'superset',
-          label: 'Superset B',
+          label: 'Superset B · antagonist',
           rest: '45s after both',
           exercises: [
-            { name: 'Cable Fly', scheme: '3 × 12–15' },
-            { name: 'Rear Delt Fly', scheme: '3 × 12–15' }
+            { name: 'Cable Fly', sub: 'chest', scheme: '3 × 12–15' },
+            { name: 'Rear Delt Fly', sub: 'rear delts (antagonist plane)', scheme: '3 × 12–15' }
           ]
         },
         {
           type: 'superset',
-          label: 'Superset C',
+          label: 'Superset C · arms antagonist',
           rest: '45s after both',
           exercises: [
-            { name: 'Hammer Curl', scheme: '3 × 10–12' },
-            { name: 'Cable Triceps Pushdown', scheme: '3 × 12–15' }
+            { name: 'Hammer Curl', sub: 'biceps', scheme: '3 × 10–12' },
+            { name: 'Cable Triceps Pushdown', sub: 'triceps (antagonist)', scheme: '3 × 12–15' }
           ]
         },
         {
@@ -1456,9 +1459,9 @@
         }
       ]
     },
-    5: { // Friday — Lower B
+    5: { // Friday — Lower B (HYBRID)
       title: 'Lower B · <em>hypertrophy</em>',
-      subtitle: 'Higher rep · unilateral · volume abs · 60–75 min',
+      subtitle: 'Higher rep · unilateral focus · volume abs · 60–75 min',
       type: 'lift',
       priority: 'Volume focus · feel every rep',
       blocks: [
@@ -1471,20 +1474,27 @@
         },
         {
           type: 'superset',
-          label: 'Superset A',
+          label: 'Superset A · quads + delts',
           rest: '60s after both',
           exercises: [
-            { name: 'Walking Lunges', sub: 'DBs or barbell', scheme: '3 × 12/leg' },
-            { name: 'Leg Extension', scheme: '3 × 12–15' }
+            { name: 'Bulgarian Split Squat', sub: 'or walking lunges', scheme: '3 × 10/leg' },
+            { name: 'DB Shoulder Press', sub: 'shoulders (non-competing)', scheme: '3 × 10–12' }
           ]
         },
         {
           type: 'superset',
-          label: 'Superset B',
+          label: 'Superset B · hamstrings + biceps',
           rest: '45s after both',
           exercises: [
-            { name: 'Seated Leg Curl', scheme: '3 × 12–15' },
-            { name: 'Seated Calf Raise', scheme: '3 × 15–20' }
+            { name: 'Seated Leg Curl', sub: 'hamstrings', scheme: '3 × 12–15' },
+            { name: 'Biceps Curl', sub: 'arms (non-competing)', scheme: '3 × 10–12' }
+          ]
+        },
+        {
+          type: 'finisher',
+          exercises: [
+            { name: 'Leg Extension', sub: 'quad burnout', scheme: '3 × 12–15' },
+            { name: 'Seated Calf Raise', sub: 'calves', scheme: '3 × 15–20' }
           ]
         }
       ],
