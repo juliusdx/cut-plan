@@ -371,6 +371,41 @@
     margin-bottom: 12px;
   }
 
+  /* SUPERSET BLOCK */
+  .superset {
+    background: rgba(216, 255, 60, 0.04);
+    border: 1px solid var(--line);
+    border-left: 3px solid var(--accent);
+    border-radius: 8px;
+    padding: 12px 14px;
+    margin: 12px 0;
+  }
+  .superset-label {
+    font-family: var(--mono);
+    font-size: 9.5px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .superset-label .ss-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 14px;
+    height: 14px;
+    border-radius: 3px;
+    background: var(--accent);
+    color: var(--bg);
+    font-size: 9px;
+    font-weight: 700;
+  }
+  .superset .ex-list { padding-top: 0; }
+  .superset .ex-item:last-child { border-bottom: none; padding-bottom: 4px; }
+
   /* EXERCISE LIST */
   .ex-list { list-style: none; }
   .ex-item {
@@ -756,15 +791,15 @@
 
   <header class="head">
     <div class="eyebrow">
-      <span><span class="dot"></span>Cut Phase</span>
+      <span><span class="dot"></span>Cut Phase · 4-Day Split</span>
       <span id="todayDate">—</span>
     </div>
     <h1>Cut · <em>build</em> · refine</h1>
-    <p class="sub">Strip the fat · keep the muscle · earn the abs</p>
+    <p class="sub">Strip the fat · keep the muscle · fewer days, same result</p>
     <div class="phase-strip">
       <span class="chip primary">Cut · 4–6 months</span>
-      <span class="chip">Preserve muscle</span>
-      <span class="chip">Build the abs</span>
+      <span class="chip">4-day split</span>
+      <span class="chip">Supersets</span>
       <span class="chip">Pancake project</span>
     </div>
   </header>
@@ -814,13 +849,13 @@
   <div class="card">
     <div class="card-label">The honest directive</div>
     <p class="directive">
-      The abs are <em>buried</em>, not underdeveloped. At ~18–20% body fat, no amount of crunches will reveal them. <span>The deficit is the lever.</span>
+      4 days, well executed, beats 6 days half-done. <em>Adherence wins.</em> Use supersets to finish faster — push + pull paired so one rests while the other works.
     </p>
     <div class="insight">
-      <strong>The plan:</strong> 4–6 months of disciplined cutting. Lift hard to keep every gram of muscle. Cardio to widen the deficit. Lower abs visible at ~10–12% body fat — that's the destination, ~5–7 kg of fat from here.
+      <strong>Why supersets:</strong> antagonist pairs (chest + back, biceps + triceps) cut session time 30–40% with no loss in muscle stimulus. You move more weight in less time. Main compound lifts stay traditional with full rest.
     </div>
     <div class="insight">
-      <strong>The trap:</strong> aggressive deficits work for 3 weeks then crash you. Patient 0.5 kg/week loss preserves muscle and stays sustainable. Slow is fast.
+      <strong>Schedule:</strong> Mon Upper A · Tue Lower A · Thu Upper B · Fri Lower B. Wed and Sat are flex (cardio, pickleball, or rest). Sunday rest. Skip a day = no catch-up, just resume.
     </div>
   </div>
 
@@ -889,7 +924,7 @@
           <a href="https://www.youtube.com/results?search_query=middle%20splits%20stretch%20tutorial" target="_blank" rel="noopener noreferrer" class="video-btn" aria-label="Video"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></a>
         </div>
       </li>
-      <li class="ex-item" data-log="pancake">
+      <li class="ex-item">
         <div class="ex-name"><span class="star">★</span>Pancake Hold<small>deepest position, log forearm distance to floor (cm)</small></div>
         <div class="ex-right">
           <div class="ex-scheme">60–90s</div>
@@ -928,28 +963,25 @@
   </div>
 
   <div class="card">
-    <div class="card-label">Cardio · required protocol</div>
+    <div class="card-label">Cardio · Wed + Sat flex</div>
     <div class="data-row">
-      <div class="data-label"><strong>LISS Run</strong> · Wed option<br><span style="font-size:11.5px;color:var(--ink-muted)">40 min · conversational</span></div>
+      <div class="data-label"><strong>LISS Run</strong> · option<br><span style="font-size:11.5px;color:var(--ink-muted)">40 min · conversational</span></div>
       <div class="data-value">6:00 – 6:30/km</div>
     </div>
     <div class="data-row">
-      <div class="data-label"><strong>LISS Swim</strong> · Wed option<br><span style="font-size:11.5px;color:var(--ink-muted)">38–40 min · rests as needed · zone 2</span></div>
+      <div class="data-label"><strong>LISS Swim</strong> · option<br><span style="font-size:11.5px;color:var(--ink-muted)">38–40 min · zone 2</span></div>
       <div class="data-value">2:30 – 2:45/100m</div>
     </div>
     <div class="data-row">
-      <div class="data-label"><strong>HIIT</strong> · Sat<br><span style="font-size:11.5px;color:var(--ink-muted)">23 min · 30s hard / 90s easy × 10</span></div>
-      <div class="data-value">5:00 – 5:30/km</div>
+      <div class="data-label"><strong>Pickleball</strong> · sport<br><span style="font-size:11.5px;color:var(--ink-muted)">replaces HIIT/LISS as needed</span></div>
+      <div class="data-value">60–90 min</div>
     </div>
     <div class="data-row">
-      <div class="data-label"><strong>Optional walk</strong> · Sun<br><span style="font-size:11.5px;color:var(--ink-muted)">low intensity</span></div>
-      <div class="data-value">30 – 45 min</div>
+      <div class="data-label"><strong>HIIT</strong> · option<br><span style="font-size:11.5px;color:var(--ink-muted)">30s hard / 90s easy × 10</span></div>
+      <div class="data-value">23 min total</div>
     </div>
     <div class="insight">
-      <strong>Cardio is non-negotiable in a cut.</strong> It widens the deficit without forcing you to eat less, preserving training energy.
-    </div>
-    <div class="insight">
-      <strong>Swim pace progression:</strong> current 2:30–2:45/100m → 8 weeks: 2:15–2:30 → 16 weeks: 2:00–2:15. Improve by reducing rest time before increasing speed.
+      <strong>Cardio target: 1–2 sessions per week.</strong> Pickleball counts. Don't stack 3+ cardio sessions on top of 4 lifts — recovery becomes the bottleneck.
     </div>
   </div>
 
@@ -1004,10 +1036,10 @@
   function defaultData() {
     return {
       startDate: null,
-      weights: [],   // [{ d: 'YYYY-MM-DD', kg: number }]
-      waist: [],     // [{ d: 'YYYY-MM-DD', cm: number }]
-      lifts: {},     // { id: [{ d, w, r }] }
-      workouts: {}   // { 'YYYY-MM-DD': true }
+      weights: [],
+      waist: [],
+      lifts: {},
+      workouts: {}
     };
   }
 
@@ -1017,7 +1049,6 @@
 
   let DATA = loadData();
 
-  // ============= HELPERS =============
   function todayStr() {
     const d = new Date();
     return d.toISOString().slice(0, 10);
@@ -1048,7 +1079,6 @@
     return avg(recent.map(e => e.kg));
   }
 
-  // ============= WEIGHT =============
   function logWeight() {
     const input = document.getElementById('weight-input');
     const kg = parseFloat(input.value);
@@ -1068,14 +1098,12 @@
   }
 
   function renderCheckin() {
-    // 7-day average
     const avgKg = rollingAvg(DATA.weights, 7);
     const avgEl = document.getElementById('weight-avg');
     const trendEl = document.getElementById('weight-trend');
 
     if (avgKg) {
       avgEl.innerHTML = `${avgKg.toFixed(1)}<em>kg</em>`;
-      // compare to first weight
       if (DATA.weights.length >= 2) {
         const start = DATA.weights[0].kg;
         const diff = avgKg - start;
@@ -1091,7 +1119,6 @@
       trendEl.textContent = 'log to start';
     }
 
-    // waist
     const waistEl = document.getElementById('waist-current');
     const waistTrend = document.getElementById('waist-trend');
     if (DATA.waist.length) {
@@ -1112,7 +1139,6 @@
       waistTrend.textContent = 'weekly metric';
     }
 
-    // workout completion
     const wBtn = document.getElementById('workout-btn');
     const wSub = document.getElementById('workout-sub');
     const today = todayStr();
@@ -1126,7 +1152,6 @@
       wSub.textContent = 'Tap when finished';
     }
 
-    // streak
     const streakEl = document.getElementById('streak');
     const streak = computeStreak();
     if (streak > 0) {
@@ -1141,12 +1166,10 @@
     if (!dates.length) return 0;
     let streak = 0;
     const d = new Date();
-    // start from today; walk back
     while (true) {
       const ds = d.toISOString().slice(0, 10);
       const dow = d.getDay();
-      // Sunday is rest (no workout expected) — skip without breaking streak
-      if (dow === 0) {
+      if (dow === 0 || dow === 3 || dow === 6) {
         d.setDate(d.getDate() - 1);
         continue;
       }
@@ -1154,7 +1177,6 @@
         streak++;
         d.setDate(d.getDate() - 1);
       } else {
-        // Allow today to be unmarked without breaking streak
         const todayS = todayStr();
         if (ds === todayS) {
           d.setDate(d.getDate() - 1);
@@ -1166,7 +1188,6 @@
     return streak;
   }
 
-  // ============= WAIST =============
   function logWaist() {
     const input = document.getElementById('waist-input');
     const cm = parseFloat(input.value);
@@ -1184,7 +1205,6 @@
     toast('Waist logged');
   }
 
-  // ============= WORKOUT COMPLETION =============
   function toggleWorkout() {
     const today = todayStr();
     if (DATA.workouts[today]) {
@@ -1198,23 +1218,19 @@
     toast(DATA.workouts[today] ? 'Workout logged' : 'Workout cleared');
   }
 
-  // ============= LIFT LOGGING =============
   function toggleLog(id, btn, unit, label) {
     unit = unit || 'kg';
     label = label || 'weight';
 
-    // Find form, or create one
     let form = btn.closest('.ex-item').nextElementSibling;
     const isFormNext = form && form.classList.contains('log-form');
 
-    // Toggle existing
     if (isFormNext) {
       form.classList.toggle('open');
       btn.classList.toggle('open', form.classList.contains('open'));
       return;
     }
 
-    // Create new form
     const exItem = btn.closest('.ex-item');
     exItem.classList.add('has-log');
     form = document.createElement('div');
@@ -1276,12 +1292,9 @@
     DATA.lifts[id].push({ d: todayStr(), w, r });
     saveData(DATA);
     toast('Logged');
-
-    // Re-render today's workout to refresh history display
     renderToday();
   }
 
-  // ============= RESET =============
   function confirmReset() {
     if (confirm('Delete all logged data? This cannot be undone.')) {
       localStorage.removeItem(STORAGE_KEY);
@@ -1293,36 +1306,86 @@
     }
   }
 
-  // ============= PLAN DATA =============
+  // ============= 4-DAY PLAN =============
   const PLAN = {
-    1: {
-      title: 'Upper <em>strength</em>',
-      subtitle: 'Push · pull · accessories — 60–90s rest',
+    1: { // Monday — Upper A
+      title: 'Upper A · <em>strength</em>',
+      subtitle: 'Push + pull supersets · 60–75 min',
       type: 'lift',
-      priority: 'Progression day · push the main lifts',
-      exercises: [
-        { name: 'Bench or Incline Press', sub: 'pick one, alternate weekly', scheme: '4 × 6–8', star: true, log: 'bench' },
-        { name: 'Barbell or Chest-Supported Row', scheme: '4 × 8–10', star: true, log: 'row' },
-        { name: 'Overhead Press', scheme: '3 × 8–10', star: true, log: 'ohp' },
-        { name: 'Pull-ups', sub: 'weighted if possible', scheme: '3 × AMRAP' },
-        { name: 'Lateral Raises', scheme: '3 × 12–15' },
-        { name: 'Face Pulls', sub: 'rear delts + posture', scheme: '3 × 12–15' },
-        { name: 'Biceps Curl', scheme: '3 × 10–12' },
-        { name: 'Triceps Extension', scheme: '3 × 10–12' }
+      priority: 'Strength focus · push the main lifts',
+      blocks: [
+        {
+          type: 'main',
+          exercises: [
+            { name: 'Bench or Incline Press', sub: 'main lift, full rest', scheme: '4 × 6–8', star: true, log: 'bench', rest: '90s' }
+          ]
+        },
+        {
+          type: 'superset',
+          label: 'Superset A',
+          rest: '60s after both',
+          exercises: [
+            { name: 'Bent-over Row', scheme: '4 × 6–8', star: true, log: 'row' },
+            { name: 'Overhead Press', scheme: '4 × 6–8', star: true, log: 'ohp' }
+          ]
+        },
+        {
+          type: 'superset',
+          label: 'Superset B',
+          rest: '45s after both',
+          exercises: [
+            { name: 'Pull-ups', sub: 'weighted if possible', scheme: '3 × AMRAP' },
+            { name: 'Lateral Raises', scheme: '3 × 12–15' }
+          ]
+        },
+        {
+          type: 'superset',
+          label: 'Superset C',
+          rest: '45s after both',
+          exercises: [
+            { name: 'Biceps Curl', scheme: '3 × 10–12' },
+            { name: 'Triceps Extension', scheme: '3 × 10–12' }
+          ]
+        },
+        {
+          type: 'finisher',
+          exercises: [
+            { name: 'Face Pulls', sub: 'rear delts + posture, no rest', scheme: '3 × 15' }
+          ]
+        }
       ]
     },
-    2: {
-      title: 'Lower <em>strength</em>',
-      subtitle: 'Squats · hinges · then heavy abs',
+    2: { // Tuesday — Lower A
+      title: 'Lower A · <em>strength</em>',
+      subtitle: 'Squat-focused + heavy abs · 60–75 min',
       type: 'lift',
-      priority: 'Progression day · push the main lifts',
-      exercises: [
-        { name: 'Back or Front Squat', scheme: '4 × 5–7', star: true, log: 'squat' },
-        { name: 'Romanian Deadlift', scheme: '4 × 6–8', star: true, log: 'rdl' },
-        { name: 'Hip Thrust', sub: 'glutes drive posture', scheme: '3 × 8–10' },
-        { name: 'Bulgarian Split Squat', scheme: '3 × 10/leg' },
-        { name: 'Lying Leg Curl', scheme: '3 × 10–12' },
-        { name: 'Standing Calf Raise', scheme: '3 × 12–15' }
+      priority: 'Strength focus · push the squat',
+      blocks: [
+        {
+          type: 'main',
+          exercises: [
+            { name: 'Back or Front Squat', sub: 'main lift, full rest', scheme: '4 × 5–7', star: true, log: 'squat', rest: '120s' },
+            { name: 'Romanian Deadlift', sub: 'second main lift, full rest', scheme: '4 × 6–8', star: true, log: 'rdl', rest: '90s' }
+          ]
+        },
+        {
+          type: 'superset',
+          label: 'Superset A',
+          rest: '60s after both',
+          exercises: [
+            { name: 'Hip Thrust', scheme: '3 × 8–10' },
+            { name: 'Walking Lunges', sub: 'or Bulgarian split squat', scheme: '3 × 10/leg' }
+          ]
+        },
+        {
+          type: 'superset',
+          label: 'Superset B',
+          rest: '45s after both',
+          exercises: [
+            { name: 'Lying Leg Curl', scheme: '3 × 10–12' },
+            { name: 'Standing Calf Raise', scheme: '3 × 12–15' }
+          ]
+        }
       ],
       abs: {
         title: 'Ab Day A · Strength',
@@ -1330,50 +1393,100 @@
         exercises: [
           { name: 'Weighted Hanging Leg Raise', sub: 'DB between feet, slow eccentric', scheme: '4 × 6–10', star: true, log: 'whlr' },
           { name: 'Cable Crunch', sub: 'heavy, full ROM', scheme: '4 × 10–12', star: true, log: 'ccrunch' },
-          { name: 'Ab Wheel Rollout', sub: 'from knees, then standing', scheme: '3 × 6–10' },
-          { name: 'Side Plank', scheme: '2 × 30–45s/side' }
+          { name: 'Ab Wheel Rollout', sub: 'from knees, then standing', scheme: '3 × 6–10' }
         ]
       }
     },
-    3: {
-      title: 'LISS cardio <em>+ core</em>',
-      subtitle: 'Run OR swim · widens the deficit',
-      type: 'cardio',
-      priority: 'Show up · easy effort · do NOT race',
-      exercises: [
-        { name: 'LISS Run', sub: 'easy, conversational, nasal breathing', scheme: '40 min · 6:00–6:30/km' },
-        { name: 'OR LISS Swim', sub: 'rests as needed, zone 2 HR', scheme: '38–40 min · 2:30–2:45/100m' }
-      ],
-      core: ['Hanging leg raises — 3 × 10', 'Hollow hold — 3 × 30s', 'Cable crunch — 3 × 12', 'Plank — 2 × 60s']
-    },
-    4: {
-      title: 'Upper <em>hypertrophy</em>',
-      subtitle: 'Higher reps · 60s rest · pump-focus',
-      type: 'lift',
-      priority: 'Volume day · chase the burn',
-      exercises: [
-        { name: 'Incline DB Press', sub: 'opposite angle from Monday', scheme: '4 × 10–12' },
-        { name: 'Lat Pulldown or Cable Row', scheme: '4 × 10–12' },
-        { name: 'DB Shoulder Press', scheme: '3 × 10–12' },
-        { name: 'Cable Fly', scheme: '3 × 12–15' },
-        { name: 'Lateral Raises', sub: 'go heavy', scheme: '4 × 12–15' },
-        { name: 'Rear Delt Fly', scheme: '3 × 12–15' },
-        { name: 'Hammer Curl', scheme: '3 × 10–12' },
-        { name: 'Cable Triceps Pushdown', scheme: '3 × 12–15' }
+    3: { // Wednesday — Flex day
+      title: 'Flex day',
+      subtitle: 'Cardio · pickleball · or rest',
+      type: 'flex',
+      priority: 'Choose by recovery & schedule',
+      flexOptions: [
+        { name: 'LISS Run', sub: 'easy, conversational', scheme: '40 min · 6:00–6:30/km' },
+        { name: 'LISS Swim', sub: 'rests as needed, zone 2', scheme: '40 min · 2:30–2:45/100m' },
+        { name: 'Pickleball', sub: 'social or competitive', scheme: '60–90 min' },
+        { name: 'Rest', sub: 'recovery is training', scheme: '—' }
       ]
     },
-    5: {
-      title: 'Lower <em>hypertrophy</em>',
-      subtitle: 'Higher rep · unilateral · then volume abs',
+    4: { // Thursday — Upper B
+      title: 'Upper B · <em>hypertrophy</em>',
+      subtitle: 'Higher reps · pump-focused supersets · 60–75 min',
       type: 'lift',
-      priority: 'Volume day · feel every rep',
-      exercises: [
-        { name: 'Front Squat or Leg Press', scheme: '4 × 10–12' },
-        { name: 'Stiff-Leg DL or Good Morning', scheme: '3 × 10–12' },
-        { name: 'Walking Lunges', sub: 'DBs or barbell', scheme: '3 × 12/leg' },
-        { name: 'Leg Extension', scheme: '3 × 12–15' },
-        { name: 'Seated Leg Curl', scheme: '3 × 12–15' },
-        { name: 'Seated Calf Raise', scheme: '3 × 15–20' }
+      priority: 'Volume focus · chase the burn',
+      blocks: [
+        {
+          type: 'main',
+          exercises: [
+            { name: 'Incline DB Press', sub: 'opposite angle from Monday', scheme: '4 × 8–10', rest: '75s' }
+          ]
+        },
+        {
+          type: 'superset',
+          label: 'Superset A',
+          rest: '60s after both',
+          exercises: [
+            { name: 'Cable Row or Lat Pulldown', scheme: '4 × 10–12' },
+            { name: 'DB Shoulder Press', scheme: '3 × 10–12' }
+          ]
+        },
+        {
+          type: 'superset',
+          label: 'Superset B',
+          rest: '45s after both',
+          exercises: [
+            { name: 'Cable Fly', scheme: '3 × 12–15' },
+            { name: 'Rear Delt Fly', scheme: '3 × 12–15' }
+          ]
+        },
+        {
+          type: 'superset',
+          label: 'Superset C',
+          rest: '45s after both',
+          exercises: [
+            { name: 'Hammer Curl', scheme: '3 × 10–12' },
+            { name: 'Cable Triceps Pushdown', scheme: '3 × 12–15' }
+          ]
+        },
+        {
+          type: 'finisher',
+          exercises: [
+            { name: 'Lateral Raises', sub: 'go heavy, drop set last', scheme: '4 × 12–15' }
+          ]
+        }
+      ]
+    },
+    5: { // Friday — Lower B
+      title: 'Lower B · <em>hypertrophy</em>',
+      subtitle: 'Higher rep · unilateral · volume abs · 60–75 min',
+      type: 'lift',
+      priority: 'Volume focus · feel every rep',
+      blocks: [
+        {
+          type: 'main',
+          exercises: [
+            { name: 'Front Squat or Leg Press', sub: 'main lift', scheme: '4 × 10–12', rest: '90s' },
+            { name: 'Stiff-Leg DL or Good Morning', sub: 'second main', scheme: '3 × 10–12', rest: '75s' }
+          ]
+        },
+        {
+          type: 'superset',
+          label: 'Superset A',
+          rest: '60s after both',
+          exercises: [
+            { name: 'Walking Lunges', sub: 'DBs or barbell', scheme: '3 × 12/leg' },
+            { name: 'Leg Extension', scheme: '3 × 12–15' }
+          ]
+        },
+        {
+          type: 'superset',
+          label: 'Superset B',
+          rest: '45s after both',
+          exercises: [
+            { name: 'Seated Leg Curl', scheme: '3 × 12–15' },
+            { name: 'Seated Calf Raise', scheme: '3 × 15–20' }
+          ]
+        }
       ],
       abs: {
         title: 'Ab Day B · Volume',
@@ -1386,14 +1499,17 @@
         ]
       }
     },
-    6: {
-      title: 'HIIT <em>+ mobility</em>',
-      subtitle: 'The fat-loss accelerator · sharp & short',
-      type: 'cardio',
-      priority: 'Required · this is the lever',
-      exercises: [
+    6: { // Saturday — Flex day
+      title: 'Flex day',
+      subtitle: 'Cardio · pickleball · or rest',
+      type: 'flex',
+      priority: 'Choose by recovery & schedule',
+      flexOptions: [
         { name: 'HIIT Run or Swim', sub: '30s hard / 90s easy · 10 rounds', scheme: '23 min total' },
-        { name: 'Mobility & stretch', sub: 'hips, t-spine, ankles, hamstrings', scheme: '15 min' }
+        { name: 'Pickleball', sub: 'social or competitive', scheme: '60–90 min' },
+        { name: 'LISS walk', sub: 'easy outdoors', scheme: '45–60 min' },
+        { name: 'Mobility flow', sub: 'hips, t-spine, ankles', scheme: '20–30 min' },
+        { name: 'Rest', sub: 'recovery is training', scheme: '—' }
       ]
     },
     0: { type: 'rest' }
@@ -1409,12 +1525,11 @@
   const fmt = today.toLocaleDateString('en-US', { weekday: 'long', month: 'short', day: 'numeric' });
   document.getElementById('todayDate').textContent = fmt.toUpperCase();
 
-  // ============= DAY SELECTOR =============
+  const selector = document.getElementById('daySelector');
   const order = [1,2,3,4,5,6,0];
   const abDays = [2, 5];
 
   function renderDaySelector() {
-    const selector = document.getElementById('daySelector');
     selector.innerHTML = '';
     order.forEach(d => {
       const btn = document.createElement('button');
@@ -1423,7 +1538,6 @@
       if (d === activeDay && d !== todayDow) btn.classList.add('active');
       const marker = abDays.includes(d) ? '<span class="marker"></span>' : '';
 
-      // Show check if workout was done that day this week
       const dayDate = getDateForDow(d);
       const dayKey = dayDate.toISOString().slice(0, 10);
       const checkMark = (DATA.workouts[dayKey] && d !== todayDow) ? '<span class="check"></span>' : '';
@@ -1446,7 +1560,6 @@
     return d;
   }
 
-  // ============= WORKOUT RENDER =============
   function renderToday() {
     const plan = PLAN[activeDay];
     const container = document.getElementById('todayWorkout');
@@ -1464,7 +1577,47 @@
       return;
     }
 
-    let exHTML = plan.exercises.map(ex => exerciseHTML(ex)).join('');
+    if (plan.type === 'flex') {
+      const optionsHTML = plan.flexOptions.map(opt => `
+        <li class="ex-item">
+          <div class="ex-name">${opt.name}${opt.sub ? `<small>${opt.sub}</small>` : ''}</div>
+          <div class="ex-right"><div class="ex-scheme">${opt.scheme}</div></div>
+        </li>
+      `).join('');
+
+      container.innerHTML = `
+        <div class="card hero day-content">
+          <div class="card-label">${dayLabel}</div>
+          <div class="priority-tag">${plan.priority}</div>
+          <div class="hero-title">${plan.title}</div>
+          <div class="hero-subtitle">${plan.subtitle}</div>
+          <ul class="ex-list">${optionsHTML}</ul>
+          <p class="star-note">Pick one based on energy, schedule & weekly cardio total</p>
+        </div>`;
+      return;
+    }
+
+    // Lift day with blocks
+    let blocksHTML = '';
+    plan.blocks.forEach(block => {
+      const exHTML = block.exercises.map(ex => exerciseHTML(ex)).join('');
+
+      if (block.type === 'main') {
+        blocksHTML += `
+          <div class="card-label" style="margin-top:18px;margin-bottom:8px">Main lifts · full rest</div>
+          <ul class="ex-list">${exHTML}</ul>`;
+      } else if (block.type === 'superset') {
+        blocksHTML += `
+          <div class="superset">
+            <div class="superset-label"><span class="ss-icon">SS</span>${block.label} · ${block.rest}</div>
+            <ul class="ex-list">${exHTML}</ul>
+          </div>`;
+      } else if (block.type === 'finisher') {
+        blocksHTML += `
+          <div class="card-label" style="margin-top:18px;margin-bottom:8px">Finisher</div>
+          <ul class="ex-list">${exHTML}</ul>`;
+      }
+    });
 
     let absHTML = '';
     if (plan.abs) {
@@ -1479,20 +1632,18 @@
         </div>`;
     }
 
-    let coreHTML = '';
-    if (plan.core) {
-      coreHTML = `
-        <div class="hero-detail">
-          <div class="card-label" style="margin-bottom:10px">Core finisher · 10 min</div>
-          <ul class="notes" style="margin-top:0">
-            ${plan.core.map(c => `<li>${c}</li>`).join('')}
-          </ul>
-        </div>`;
-    }
-
     let priorityHTML = plan.priority ? `<div class="priority-tag">${plan.priority}</div>` : '';
-    const hasStars = plan.exercises.some(e => e.star) || (plan.abs && plan.abs.exercises.some(e => e.star));
-    let starNote = hasStars ? '<p class="star-note">★ = log this lift · tap ▶ for form video · tap Log to save</p>' : '<p class="star-note">tap ▶ next to any exercise for form video</p>';
+
+    // Check for any starred exercises across all blocks
+    let hasStars = false;
+    plan.blocks.forEach(b => {
+      if (b.exercises.some(e => e.star)) hasStars = true;
+    });
+    if (plan.abs && plan.abs.exercises.some(e => e.star)) hasStars = true;
+
+    let starNote = hasStars
+      ? '<p class="star-note">★ = log this lift · tap ▶ for form video · tap Log to save</p>'
+      : '<p class="star-note">tap ▶ next to any exercise for form video</p>';
 
     container.innerHTML = `
       <div class="card hero day-content">
@@ -1500,10 +1651,9 @@
         ${priorityHTML}
         <div class="hero-title">${plan.title}</div>
         <div class="hero-subtitle">${plan.subtitle}</div>
-        <ul class="ex-list">${exHTML}</ul>
+        ${blocksHTML}
         ${absHTML}
         ${starNote}
-        ${coreHTML}
       </div>`;
   }
 
@@ -1527,12 +1677,10 @@
       </li>`;
   }
 
-  // ============= INIT =============
   renderDaySelector();
   renderToday();
   renderCheckin();
 
-  // Allow Enter key on weight/waist inputs
   document.getElementById('weight-input').addEventListener('keypress', e => {
     if (e.key === 'Enter') logWeight();
   });
