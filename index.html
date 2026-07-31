@@ -102,6 +102,55 @@
     font-weight: 500;
   }
 
+  /* MODE SWITCH */
+  .mode-switch {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6px;
+    margin-top: 14px;
+    background: var(--bg-elev);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 4px;
+  }
+  .mode-btn {
+    background: transparent;
+    border: none;
+    color: var(--ink-muted);
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 10px 6px;
+    border-radius: 7px;
+    cursor: pointer;
+    transition: all 0.15s;
+    font-weight: 500;
+  }
+  .mode-btn.active {
+    background: var(--accent);
+    color: var(--bg);
+    font-weight: 600;
+  }
+  .mode-btn#modeDeload.active {
+    background: var(--warn);
+    color: var(--bg);
+  }
+
+  .deload-banner {
+    display: none;
+    margin-top: 10px;
+    background: rgba(255, 140, 92, 0.08);
+    border: 1px solid var(--warn);
+    border-radius: 10px;
+    padding: 12px 14px;
+    font-size: 12.5px;
+    color: var(--ink-dim);
+    line-height: 1.5;
+  }
+  .deload-banner.show { display: block; }
+  .deload-banner strong { color: var(--warn); font-weight: 600; }
+
   .days {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
@@ -797,10 +846,18 @@
     <h1>Cut · <em>build</em> · refine</h1>
     <p class="sub">Strip the fat · keep the muscle · fewer days, same result</p>
     <div class="phase-strip">
-      <span class="chip primary">Cut · 4–6 months</span>
+      <span class="chip primary" id="phaseChip">Cut · 4–6 months</span>
       <span class="chip">4-day split</span>
       <span class="chip">Supersets</span>
       <span class="chip">Pancake project</span>
+    </div>
+
+    <div class="mode-switch">
+      <button class="mode-btn active" id="modeNormal" onclick="setMode(false)">Normal</button>
+      <button class="mode-btn" id="modeDeload" onclick="setMode(true)">Deload week</button>
+    </div>
+    <div class="deload-banner" id="deloadBanner">
+      <strong>Deload active.</strong> Sets halved (min 2) · finishers dropped · <strong>same weights</strong> · stop at 3–4 RIR. Pair with a diet break at maintenance. Switch back after 7–10 days.
     </div>
   </header>
 
@@ -1511,6 +1568,58 @@
     0: { type: 'rest' }
   };
 
+  // ============= DELOAD MODE =============
+  let DELOAD = false;
+  try { DELOAD = localStorage.getItem('deload_mode') === '1'; } catch(e) {}
+
+  function setMode(on) {
+    DELOAD = on;
+    try { localStorage.setItem('deload_mode', on ? '1' : '0'); } catch(e) {}
+    document.getElementById('modeNormal').classList.toggle('active', !on);
+    document.getElementById('modeDeload').classList.toggle('active', on);
+    document.getElementById('deloadBanner').classList.toggle('show', on);
+    document.getElementById('phaseChip').textContent = on ? 'Deload week · maintenance' : 'Cut · 4–6 months';
+    renderToday();
+    toast(on ? 'Deload mode on' : 'Back to normal plan');
+  }
+
+  // Halve sets (floor 2), keep rep ranges & weights the same
+  function halveScheme(scheme) {
+    return scheme.replace(/^(\d+)\s*×/, (m, sets) => {
+      const n = Math.max(2, Math.round(parseInt(sets) / 2));
+      return n + ' ×';
+    });
+  }
+
+  // Return a deload version of a lift day: fewer sets, no finishers, trimmed abs
+  function deloadPlan(plan) {
+    if (plan.type !== 'lift') return plan;
+    const p = JSON.parse(JSON.stringify(plan));
+
+    p.subtitle = 'DELOAD · half volume · same weights · 30–35 min';
+    p.priority = 'Recover · stop at 3–4 RIR, leave reps in the tank';
+
+    // drop finisher blocks entirely, halve everything else
+    p.blocks = p.blocks
+      .filter(b => b.type !== 'finisher')
+      .map(b => {
+        b.exercises = b.exercises.map(ex => {
+          ex.scheme = halveScheme(ex.scheme);
+          return ex;
+        });
+        return b;
+      });
+
+    // abs: halve sets, drop the last exercise
+    if (p.abs) {
+      p.abs.tag = 'deload · 2 sets';
+      p.abs.exercises = p.abs.exercises
+        .slice(0, Math.max(2, p.abs.exercises.length - 1))
+        .map(ex => { ex.scheme = halveScheme(ex.scheme); return ex; });
+    }
+    return p;
+  }
+
   const DAY_NAMES = ['SUN','MON','TUE','WED','THU','FRI','SAT'];
   const DAY_FULL = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
 
@@ -1557,7 +1666,7 @@
   }
 
   function renderToday() {
-    const plan = PLAN[activeDay];
+    let plan = PLAN[activeDay];
     const container = document.getElementById('todayWorkout');
     const dayLabel = activeDay === todayDow ? 'Today · ' + DAY_FULL[activeDay] : DAY_FULL[activeDay];
 
@@ -1592,6 +1701,9 @@
         </div>`;
       return;
     }
+
+    // Apply deload transform if active
+    plan = DELOAD ? deloadPlan(plan) : plan;
 
     // Lift day with blocks
     let blocksHTML = '';
@@ -1671,6 +1783,14 @@
           ${logBtn}
         </div>
       </li>`;
+  }
+
+  // restore deload UI state on load
+  if (DELOAD) {
+    document.getElementById('modeNormal').classList.remove('active');
+    document.getElementById('modeDeload').classList.add('active');
+    document.getElementById('deloadBanner').classList.add('show');
+    document.getElementById('phaseChip').textContent = 'Deload week · maintenance';
   }
 
   renderDaySelector();
