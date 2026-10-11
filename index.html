@@ -105,7 +105,7 @@
   /* MODE SWITCH */
   .mode-switch {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
     gap: 6px;
     margin-top: 14px;
     background: var(--bg-elev);
@@ -136,6 +136,23 @@
     background: var(--warn);
     color: var(--bg);
   }
+  .mode-btn#modeTravel.active {
+    background: #5cc8ff;
+    color: var(--bg);
+  }
+  .travel-banner {
+    display: none;
+    margin-top: 10px;
+    background: rgba(92, 200, 255, 0.08);
+    border: 1px solid #5cc8ff;
+    border-radius: 10px;
+    padding: 12px 14px;
+    font-size: 12.5px;
+    color: var(--ink-dim);
+    line-height: 1.5;
+  }
+  .travel-banner.show { display: block; }
+  .travel-banner strong { color: #5cc8ff; font-weight: 600; }
 
   .deload-banner {
     display: none;
@@ -840,7 +857,7 @@
 
   <header class="head">
     <div class="eyebrow">
-      <span><span class="dot"></span>Cut Phase · 4-Day Split</span>
+      <span><span class="dot"></span>Maintenance · 4-Day Split</span>
       <span id="todayDate">—</span>
     </div>
     <h1>Cut · <em>build</em> · refine</h1>
@@ -853,11 +870,15 @@
     </div>
 
     <div class="mode-switch">
-      <button class="mode-btn active" id="modeNormal" onclick="setMode(false)">Normal</button>
-      <button class="mode-btn" id="modeDeload" onclick="setMode(true)">Deload week</button>
+      <button class="mode-btn active" id="modeNormal" onclick="setMode('normal')">Normal</button>
+      <button class="mode-btn" id="modeDeload" onclick="setMode('deload')">Deload</button>
+      <button class="mode-btn" id="modeTravel" onclick="setMode('travel')">Travel</button>
     </div>
     <div class="deload-banner" id="deloadBanner">
       <strong>Deload active.</strong> Sets halved (min 2) · finishers dropped · <strong>same weights</strong> · stop at 3–4 RIR. Pair with a diet break at maintenance. Switch back after 7–10 days.
+    </div>
+    <div class="travel-banner" id="travelBanner">
+      <strong>Travel mode.</strong> Goal is to <strong>hold</strong>, not progress. 3 full-body sessions (Mon · Wed · Fri) + 8–10k steps daily. Protein 150g+, creatine daily, morning daylight on arrival, eat at maintenance. Switch back to Normal when home.
     </div>
   </header>
 
@@ -1578,19 +1599,117 @@
   };
 
   // ============= DELOAD MODE =============
-  let DELOAD = false;
-  try { DELOAD = localStorage.getItem('deload_mode') === '1'; } catch(e) {}
+  let MODE = 'normal';
+  try {
+    MODE = localStorage.getItem('plan_mode') || (localStorage.getItem('deload_mode') === '1' ? 'deload' : 'normal');
+  } catch(e) {}
+  let DELOAD = MODE === 'deload';
 
-  function setMode(on) {
-    DELOAD = on;
-    try { localStorage.setItem('deload_mode', on ? '1' : '0'); } catch(e) {}
-    document.getElementById('modeNormal').classList.toggle('active', !on);
-    document.getElementById('modeDeload').classList.toggle('active', on);
-    document.getElementById('deloadBanner').classList.toggle('show', on);
-    document.getElementById('phaseChip').textContent = on ? 'Deload week' : 'Maintenance · Oct–Dec';
-    renderToday();
-    toast(on ? 'Deload mode on' : 'Back to normal plan');
+  function applyModeUI() {
+    document.getElementById('modeNormal').classList.toggle('active', MODE === 'normal');
+    document.getElementById('modeDeload').classList.toggle('active', MODE === 'deload');
+    document.getElementById('modeTravel').classList.toggle('active', MODE === 'travel');
+    document.getElementById('deloadBanner').classList.toggle('show', MODE === 'deload');
+    document.getElementById('travelBanner').classList.toggle('show', MODE === 'travel');
+    document.getElementById('phaseChip').textContent =
+      MODE === 'deload' ? 'Deload week' : MODE === 'travel' ? 'Travel · hold mode' : 'Maintenance · Oct–Dec';
   }
+
+  function setMode(m) {
+    MODE = m;
+    DELOAD = m === 'deload';
+    try { localStorage.setItem('plan_mode', m); localStorage.setItem('deload_mode', DELOAD ? '1' : '0'); } catch(e) {}
+    applyModeUI();
+    renderToday();
+    toast(m === 'deload' ? 'Deload mode on' : m === 'travel' ? 'Travel mode on' : 'Back to normal plan');
+  }
+
+  // ============= TRAVEL PLAN (hold, don't progress) =============
+  const TRAVEL_PLAN = {
+    1: {
+      title: 'Full Body A · <em>hotel gym</em>',
+      subtitle: 'Dumbbells · ~40 min · no gym? do the Wednesday room session',
+      type: 'lift',
+      priority: 'Hold mode · 1–2 reps in reserve',
+      blocks: [
+        { type: 'main', exercises: [
+          { name: 'DB Goblet Squat', sub: '3s lowering', scheme: '3 × 10–12' },
+          { name: 'DB Romanian Deadlift', sub: 'hamstrings + glutes', scheme: '3 × 10–12' }
+        ]},
+        { type: 'superset', label: 'Superset A · push/pull', rest: '60s after both', exercises: [
+          { name: 'DB Bench or Floor Press', sub: 'chest', scheme: '3 × 8–12' },
+          { name: 'One-arm DB Row', sub: 'back', scheme: '3 × 10–12/side' }
+        ]},
+        { type: 'superset', label: 'Superset B · shoulders + arms', rest: '45s after both', exercises: [
+          { name: 'DB Shoulder Press', sub: 'shoulders', scheme: '3 × 10–12' },
+          { name: 'DB Curl + Overhead Triceps Ext.', sub: 'back-to-back', scheme: '2 × 12' }
+        ]},
+        { type: 'finisher', exercises: [
+          { name: 'Hanging Leg Raise or Dead Bug', sub: 'core', scheme: '3 × 10' }
+        ]}
+      ]
+    },
+    2: {
+      title: 'Active day · <em>walk</em>',
+      subtitle: 'Explore on foot · 8–10k steps',
+      type: 'flex',
+      priority: 'Movement, not training',
+      flexOptions: [
+        { name: 'Walk the city', sub: 'counts toward your daily steps', scheme: '8–10k steps' },
+        { name: 'Mobility flow', sub: 'hips, t-spine + pancake in the room', scheme: '10–15 min' }
+      ]
+    },
+    3: {
+      title: 'Full Body B · <em>room only</em>',
+      subtitle: 'No equipment · ~30 min · 3s lowering on every rep',
+      type: 'lift',
+      priority: 'Hold mode · finish sets near failure',
+      blocks: [
+        { type: 'superset', label: 'Pair 1 · legs + push', rest: '60s after both', exercises: [
+          { name: 'Bulgarian Split Squat', sub: 'rear foot on bed', scheme: '3 × 10–12/leg' },
+          { name: 'Decline Push-ups', sub: 'feet on chair', scheme: '3 × near failure' }
+        ]},
+        { type: 'superset', label: 'Pair 2 · glutes + pull', rest: '60s after both', exercises: [
+          { name: 'Single-leg Hip Thrust', sub: 'shoulders on bed', scheme: '3 × 12/leg' },
+          { name: 'Table or Towel-Door Row', sub: 'back', scheme: '3 × 10–15' }
+        ]},
+        { type: 'superset', label: 'Pair 3 · shoulders + triceps', rest: '60s after both', exercises: [
+          { name: 'Pike Push-ups', sub: 'shoulders', scheme: '3 × 8–10' },
+          { name: 'Chair Dips', sub: 'triceps', scheme: '3 × 12–15' }
+        ]},
+        { type: 'finisher', exercises: [
+          { name: 'Plank with Reaches + Dead Bug', sub: 'core circuit', scheme: '2 rounds' }
+        ]}
+      ]
+    },
+    4: {
+      title: 'Cardio · <em>4×4 if possible</em>',
+      subtitle: 'Hotel rower, bike or treadmill · ~43 min',
+      type: 'flex',
+      priority: 'Optional · keeps the weekly 4×4 streak',
+      flexOptions: [
+        { name: 'Norwegian 4×4', sub: '4 × (4 min hard / 3 min easy) on any machine', scheme: 'HR 164–175' },
+        { name: 'Stair version', sub: 'no machine: 4 × 4 min brisk stair climbing', scheme: '~35 min' },
+        { name: 'Walk instead', sub: 'if jet-lagged or sleep was poor', scheme: '8–10k steps' }
+      ]
+    },
+    5: null, // Friday: repeat Full Body A (set below)
+    6: {
+      title: 'Active day · <em>walk</em>',
+      subtitle: 'Explore on foot · 8–10k steps',
+      type: 'flex',
+      priority: 'Movement, not training',
+      flexOptions: [
+        { name: 'Walk the city', sub: 'counts toward your daily steps', scheme: '8–10k steps' },
+        { name: 'Pool or easy swim', sub: 'if the hotel has one', scheme: '20–30 min' }
+      ]
+    },
+    0: { type: 'rest' }
+  };
+  TRAVEL_PLAN[5] = Object.assign({}, TRAVEL_PLAN[1], {
+    title: 'Full Body A · <em>repeat</em>',
+    subtitle: 'Hotel gym · ~40 min · or redo the room session'
+  });
 
   // Halve sets (floor 2), keep rep ranges & weights the same
   function halveScheme(scheme) {
@@ -1675,7 +1794,7 @@
   }
 
   function renderToday() {
-    let plan = PLAN[activeDay];
+    let plan = (MODE === 'travel' ? TRAVEL_PLAN : PLAN)[activeDay];
     const container = document.getElementById('todayWorkout');
     const dayLabel = activeDay === todayDow ? 'Today · ' + DAY_FULL[activeDay] : DAY_FULL[activeDay];
 
@@ -1795,12 +1914,7 @@
   }
 
   // restore deload UI state on load
-  if (DELOAD) {
-    document.getElementById('modeNormal').classList.remove('active');
-    document.getElementById('modeDeload').classList.add('active');
-    document.getElementById('deloadBanner').classList.add('show');
-    document.getElementById('phaseChip').textContent = 'Deload week';
-  }
+  applyModeUI();
 
   renderDaySelector();
   renderToday();
