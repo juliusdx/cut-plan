@@ -1730,11 +1730,11 @@
   ];
 
   const STACK_A = [
-    { name: 'Doorway Pec Stretch + PIR', sub: 'assisted · press 30% 5 s, relax deeper 5 s · ribs down; front-shoulder pinch → lower the arm', scheme: '4 cycles × 2/side', vid: 'doorway pec stretch' },
-    { name: 'Foam-Roller T-Spine Extension', sub: 'upper back only · 3 breaths per segment · week 3+: stick in streamline', scheme: '2 × 6–8 spots', vid: 'foam roller thoracic extension' },
-    { name: 'Open Books', sub: 'side-lying, knees stacked 90° · exhale at end range', scheme: '2 × 8/side', vid: 'open book thoracic rotation' },
-    { name: 'Bench Lat Stretch + PIR', sub: 'kneel, elbows on bench, hips back, low back slightly rounded', scheme: '3 × 30 s', vid: 'bench lat stretch' },
-    { name: 'Prone Streamline Lift-offs', sub: 'resisted · light stick, forehead down, lift 3 s', scheme: '2 × 8', vid: 'prone streamline lift off' }
+    { name: 'Doorway Pec Stretch + PIR', sub: 'ASSISTED · isolated · press 30% 5 s, relax deeper 5 s · ribs down; front-shoulder pinch → lower the arm', scheme: '4 cycles × 2/side', vid: 'doorway pec stretch' },
+    { name: 'Foam-Roller T-Spine Extension', sub: 'NEUTRAL · upper back only · 3 breaths per segment · week 3+: stick in streamline', scheme: '2 × 6–8 spots', vid: 'foam roller thoracic extension' },
+    { name: 'Open Books', sub: 'NEUTRAL · rotation · side-lying, knees stacked 90° · exhale at end range', scheme: '2 × 8/side', vid: 'open book thoracic rotation' },
+    { name: 'Bench Lat Stretch + PIR', sub: 'ASSISTED · compound · PIR: press elbows 5 s, relax deeper 5 s · low back slightly rounded', scheme: '3 × 30 s', vid: 'bench lat stretch' },
+    { name: 'Prone Streamline Lift-offs', sub: 'RESISTED · makes new range usable · light stick, forehead down, lift 3 s', scheme: '2 × 8', vid: 'prone streamline lift off' }
   ];
   const STACK_A_SWAPS = [
     '4a failed → swap drill 2 or 3 for an overhead ER stretch: arm ~135°, 1–2 kg DB, 2 × 30–45 s/side',
@@ -1742,14 +1742,14 @@
   ];
   function stackB() {
     const drill4 = MOB.stage >= 3
-      ? { name: 'Lying Leg-to-Shoulder', sub: 'stage 3 · hold the calf, foot flexed · shin outside and behind the shoulder', scheme: '3 × 20–30 s/side', vid: 'lying leg behind head prep' }
-      : { name: 'Weighted Standing Pike', sub: 'on a plate, 2.5–5 kg DBs · belly to thighs, pelvis tipped forward', scheme: '3 × 30 s', vid: 'weighted standing pike stretch' };
+      ? { name: 'Lying Leg-to-Shoulder', sub: 'ASSISTED · stage 3 · hold the calf, foot flexed · shin outside and behind the shoulder', scheme: '3 × 20–30 s/side', vid: 'lying leg behind head prep' }
+      : { name: 'Weighted Standing Pike', sub: 'ASSISTED (heavy) · compound · on a plate, 2.5–5 kg DBs · belly to thighs, pelvis tipped forward', scheme: '3 × 30 s', vid: 'weighted standing pike stretch' };
     return [
-      { name: 'Strap Hamstring Stretch + PIR', sub: 'heel into strap 30% 5 s, relax deeper 5 s · test 8 failed → calf stretch first 2 × 45 s', scheme: '4–5 cycles × 2/leg', vid: 'strap hamstring stretch PNF' },
-      { name: '90/90 Lean + PIR', sub: 'flat back over the front shin · press knee down 5 s, relax deeper', scheme: '3 × 30 s/side', vid: '90 90 hip stretch' },
-      { name: 'Cradle Rocks', sub: '10 rocks then 30 s hold · back rounds → do it lying', scheme: '2/side', vid: 'cradle stretch hip' },
+      { name: 'Strap Hamstring Stretch + PIR', sub: 'ASSISTED · isolated · heel into strap 30% 5 s, relax deeper 5 s · test 8 failed → calf stretch first 2 × 45 s', scheme: '4–5 cycles × 2/leg', vid: 'strap hamstring stretch PNF' },
+      { name: '90/90 Lean + PIR', sub: 'ASSISTED · isolated hip rotation · flat back over the front shin · press knee down 5 s, relax deeper', scheme: '3 × 30 s/side', vid: '90 90 hip stretch' },
+      { name: 'Cradle Rocks', sub: 'NEUTRAL · 10 rocks then 30 s hold · back rounds → do it lying', scheme: '2/side', vid: 'cradle stretch hip' },
       drill4,
-      { name: 'Seated Pike Leg Lifts', sub: 'resisted · hands beside knees, lift heels 3 s · progress hands toward feet', scheme: '2 × 6–8', vid: 'seated pike leg lifts compression' }
+      { name: 'Seated Pike Leg Lifts', sub: 'RESISTED · compression strength · hands beside knees, lift heels 3 s · progress hands toward feet', scheme: '2 × 6–8', vid: 'seated pike leg lifts compression' }
     ];
   }
   const FOLD_STAGES = [
@@ -1762,10 +1762,10 @@
   // Schedule: 1× → Thu B (home, evening), Sat tests + A. 2× adds Mon A (home), Fri B (after lift, −1 set)
   function mobForDay(dow) {
     const out = [];
+    if (MOB.freq === 2 && dow === 4) out.push({ stack: 'A', note: '2nd session · straight after Upper B · one set fewer per drill' });
     if (dow === 4) out.push({ stack: 'B', note: 'At home this evening · ~20–25 min' });
     if (dow === 6) out.push({ stack: 'A', note: 'Run the tests first if due · ~20 min' });
     if (MOB.freq === 2) {
-      if (dow === 1) out.push({ stack: 'A', note: '2nd session · at home this evening · one set fewer per drill' });
       if (dow === 5) out.push({ stack: 'B', note: '2nd session · straight after lifting · one set fewer per drill' });
     }
     return out;
@@ -1782,19 +1782,20 @@
   function drillList(drills, extraNote) {
     const items = drills.map(ex => exerciseHTML(ex)).join('');
     const setNote = (MODE === 'deload' || extraNote) ? `<p class="star-note">${MODE === 'deload' ? 'Deload: one set fewer per drill. ' : ''}${extraNote || ''}</p>` : '';
-    return `<ul class="ex-list">${items}</ul>${setNote}`;
+    return `<p class="star-note" style="margin:4px 0 0">Do in this order — each drill opens range for the next. Assisted raises the ceiling; resisted makes it usable.</p><ul class="ex-list">${items}</ul>${setNote}`;
   }
 
   function stackCard(which, opts) {
     opts = opts || {};
     const isA = which === 'A';
     const title = isA ? 'Stack A · <em>streamline + catch</em>' : 'Stack B · <em>the fold</em>';
-    const sub = isA ? 'Shoulders · ~20 min · Sat (+ Mon home in 2× phase)' : `Hips + hamstrings · ~20–25 min · Thu home (+ Fri in 2× phase) · Stage ${MOB.stage}`;
+    const sub = isA ? 'Shoulders · ~20 min · Sat (+ Thu after Upper B in 2× phase)' : `Hips + hamstrings · ~20–25 min · Thu home (+ Fri in 2× phase) · Stage ${MOB.stage}`;
     const swaps = isA ? `<ul class="notes" style="margin-top:8px">${STACK_A_SWAPS.map(t => `<li>${t}</li>`).join('')}</ul>` : '';
     return `
       <div class="ab-block">
         <div class="ab-header"><div class="ab-title">${title}</div><div class="ab-tag">${opts.tag || 'stack'}</div></div>
         <p style="font-size:12px;color:var(--ink-muted);margin-bottom:6px">${sub}</p>
+        ${MOB.priority && mobPriorityStack() === which ? `<div class="insight" style="margin:6px 0"><strong>Lowest rung:</strong> ${mobPriorityName()} — give its drill your best effort and full sets.</div>` : ''}
         ${drillList(isA ? STACK_A : stackB(), opts.note)}
         ${swaps}
       </div>`;
@@ -1824,7 +1825,7 @@
       <div class="card">
         <div class="card-label">Mobility · two stacks, tested every 4 weeks</div>
         <p style="font-size:13.5px;color:var(--ink-dim);line-height:1.5;margin-bottom:12px">
-          Stretching is training load. Each stack 1–2× a week at <strong style="color:var(--ink)">4–6/10</strong>, never the day after lifting the same area, never as "active recovery".
+          Stretching is training load. Each stack 1–2× a week at <strong style="color:var(--ink)">4–6/10</strong>. Best: 2+ days after hard lifting or sport on that area. Next best: same day, later in the evening, or straight after with one set fewer. Never the day after, never as "active recovery".
         </p>
         <div class="mode-switch" style="grid-template-columns:1fr 1fr;margin-bottom:6px">
           <button class="mode-btn ${MOB.freq === 1 ? 'active' : ''}" onclick="mobSetFreq(1)">1× / week</button>
@@ -1848,9 +1849,20 @@
         <p style="font-size:13px;color:var(--ink-dim);margin-bottom:10px">Cold, before any warm-up, Saturday morning. Worst result gets priority in the stacks. Log a number, pass/fail or L/R.</p>
         <ul class="ex-list">${rows}</ul>
         <button class="btn" style="width:100%;margin-top:12px" onclick="mobSaveTests()">Save test results</button>
+        <div class="card-label" style="margin-top:18px">Your lowest rung · focus for the next 4 weeks</div>
+        <select class="field" onchange="mobSetPriority(this.value)">
+          <option value="">— pick the worst result after testing —</option>
+          ${MOB_TESTS.map(t => `<option value="${t.id}" ${MOB.priority === t.id ? 'selected' : ''}>${t.name}</option>`).join('')}
+        </select>
+        <p class="star-note">Limits can be muscle, nerve, technique or strength. Fix the lowest rung first, not the usual tight spot.</p>
         <p class="star-note">${MOB.tests.length} test day(s) logged${pancakeHist ? ' · Pancake (archived): ' + pancakeHist : ''}</p>
       </div>`;
   }
+
+  const PRIORITY_STACK = { t1:'A', t2:'A', t3:'A', t4a:'A', t4b:'A', t5:'A', t6:'B', t7:'B', t8:'B', t9:'B', t10:'B' };
+  function mobPriorityStack() { return PRIORITY_STACK[MOB.priority]; }
+  function mobPriorityName() { const t = MOB_TESTS.find(x => x.id === MOB.priority); return t ? t.name.replace(/^\S+ · /, '') + ' (' + t.fail + ')' : ''; }
+  function mobSetPriority(v) { MOB.priority = v; mobSave(); renderMobility(); renderToday(); toast(v ? 'Lowest rung set' : 'Cleared'); }
 
   function mobSaveTests() {
     const r = {}; let any = false;
