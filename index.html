@@ -972,85 +972,13 @@
     <ul class="notes">
       <li><strong>Stop eating 3h before bed.</strong> Wake-up belly is often digestion</li>
       <li><strong>Test eliminations</strong> 10–14 days each: dairy, gluten, carbonation, sweeteners</li>
-      <li><strong>Anterior pelvic tilt</strong> pushes the lower belly forward. Daily: couch stretch 60s/side</li>
+      <li><strong>Anterior pelvic tilt</strong> pushes the lower belly forward. Couch stretch 60s/side after Tue + Fri ab work</li>
       <li><strong>Brace, don't suck in.</strong> Standing relaxed: ribs down, gentle abdominal tension</li>
       <li><strong>Sodium & sleep</strong> drive water retention. Both matter</li>
     </ul>
   </div>
 
-  <div class="card">
-    <div class="card-label">Mobility · Pancake project</div>
-    <p style="font-size:13.5px;color:var(--ink-dim);line-height:1.5;margin-bottom:14px">
-      Daily 10-min PM session. Connective tissue adapts to <strong style="color:var(--ink)">frequency, not intensity</strong>.
-    </p>
-
-    <div class="card-label" style="margin-bottom:10px">Daily flow · evenings</div>
-    <ul class="ex-list">
-      <li class="ex-item">
-        <div class="ex-name">Cossack Squat<small>warm up the hips, slow & controlled</small></div>
-        <div class="ex-right">
-          <div class="ex-scheme">5/side</div>
-          <a href="https://www.youtube.com/results?search_query=cossack%20squat%20tutorial" target="_blank" rel="noopener noreferrer" class="video-btn" aria-label="Video"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></a>
-        </div>
-      </li>
-      <li class="ex-item">
-        <div class="ex-name">Pike Fold<small>seated, fold from hips</small></div>
-        <div class="ex-right">
-          <div class="ex-scheme">10 pulses + 30s</div>
-          <a href="https://www.youtube.com/results?search_query=pike%20fold%20flexibility%20tutorial" target="_blank" rel="noopener noreferrer" class="video-btn" aria-label="Video"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></a>
-        </div>
-      </li>
-      <li class="ex-item">
-        <div class="ex-name">Straddle Side Fold<small>chest over each leg</small></div>
-        <div class="ex-right">
-          <div class="ex-scheme">45s/side</div>
-          <a href="https://www.youtube.com/results?search_query=straddle%20side%20fold%20stretch" target="_blank" rel="noopener noreferrer" class="video-btn" aria-label="Video"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></a>
-        </div>
-      </li>
-      <li class="ex-item">
-        <div class="ex-name">Straddle Center Fold<small>walk hands forward</small></div>
-        <div class="ex-right">
-          <div class="ex-scheme">60s</div>
-          <a href="https://www.youtube.com/results?search_query=middle%20splits%20stretch%20tutorial" target="_blank" rel="noopener noreferrer" class="video-btn" aria-label="Video"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></a>
-        </div>
-      </li>
-      <li class="ex-item">
-        <div class="ex-name"><span class="star">★</span>Pancake Hold<small>deepest position, log forearm distance to floor (cm)</small></div>
-        <div class="ex-right">
-          <div class="ex-scheme">60–90s</div>
-          <a href="https://www.youtube.com/results?search_query=pancake%20stretch%20tutorial" target="_blank" rel="noopener noreferrer" class="video-btn" aria-label="Video"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></a>
-          <button class="log-toggle" onclick="toggleLog('pancake', this, 'cm', 'distance')">Log</button>
-        </div>
-      </li>
-    </ul>
-
-    <div class="ab-block">
-      <div class="ab-header">
-        <div class="ab-title">PNF finisher · Tue + Fri</div>
-        <div class="ab-tag">post-lift only</div>
-      </div>
-      <ul class="ex-list">
-        <li class="ex-item">
-          <div class="ex-name">Straddle PNF<small>push 6s → relax → fold deeper</small></div>
-          <div class="ex-right">
-            <div class="ex-scheme">3 × 20s</div>
-            <a href="https://www.youtube.com/results?search_query=PNF%20stretching%20straddle%20tutorial" target="_blank" rel="noopener noreferrer" class="video-btn" aria-label="Video"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></a>
-          </div>
-        </li>
-        <li class="ex-item">
-          <div class="ex-name">Pike PNF<small>same protocol, legs together</small></div>
-          <div class="ex-right">
-            <div class="ex-scheme">3 × 20s</div>
-            <a href="https://www.youtube.com/results?search_query=PNF%20stretching%20pike%20fold" target="_blank" rel="noopener noreferrer" class="video-btn" aria-label="Video"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></a>
-          </div>
-        </li>
-      </ul>
-    </div>
-
-    <div class="insight">
-      <strong>Critical cue:</strong> Tilt the pelvis FORWARD when folding. Sit on a yoga block if your pelvis tips back with straight legs.
-    </div>
-  </div>
+  <div id="mobilitySection"></div>
 
   <div class="card">
     <div class="card-label">Cardio · Wed + Sat flex</div>
@@ -1485,7 +1413,8 @@
         exercises: [
           { name: 'Weighted Hanging Leg Raise', sub: 'DB between feet, slow eccentric', scheme: '3 × 6–10', star: true, log: 'whlr' },
           { name: 'Cable Crunch', sub: 'heavy, full ROM', scheme: '3 × 10–12', star: true, log: 'ccrunch' },
-          { name: 'Barbell Rollout', sub: 'from knees → progress to standing', scheme: '3 × 6–10' }
+          { name: 'Barbell Rollout', sub: 'from knees → progress to standing', scheme: '3 × 6–10' },
+          { name: 'Couch Stretch', sub: 'hip flexors · after ab work · not a stack', scheme: '60s/side', vid: 'couch stretch hip flexor' }
         ]
       }
     },
@@ -1579,7 +1508,8 @@
         exercises: [
           { name: 'Decline Reverse Crunch', sub: 'lower abs focus, slow', scheme: '3 × 12–15', star: true, log: 'rcrunch' },
           { name: 'Pallof Press', sub: 'anti-rotation (swapped from woodchop)', scheme: '3 × 12/side' },
-          { name: 'Dead Bug', sub: 'swapped from hollow hold', scheme: '3 × 8/side' }
+          { name: 'Dead Bug', sub: 'swapped from hollow hold', scheme: '3 × 8/side' },
+          { name: 'Couch Stretch', sub: 'hip flexors · after ab work · not a stack', scheme: '60s/side', vid: 'couch stretch hip flexor' }
         ]
       }
     },
@@ -1749,6 +1679,164 @@
     return p;
   }
 
+
+  // ============= MOBILITY (Matt Smith blueprint) =============
+  const MOB_KEY = 'mobility_v1';
+  function mobLoad() { try { return Object.assign({ tests: [], stage: 1, stageDates: {}, freq: 1 }, JSON.parse(localStorage.getItem(MOB_KEY) || '{}')); } catch(e) { return { tests: [], stage: 1, stageDates: {}, freq: 1 }; } }
+  function mobSave() { try { localStorage.setItem(MOB_KEY, JSON.stringify(MOB)); } catch(e) {} }
+  let MOB = mobLoad();
+
+  const MOB_TESTS = [
+    { id: 't1',  name: '1 · Wall streamline', how: 'Back to wall, feet 15 cm out, low back + head touching, thumbs locked overhead. Pass: thumbs touch, ribs down.', unit: 'cm gap', fail: 'Overall overhead — tests 2–4 say why' },
+    { id: 't2',  name: '2 · Lat check', how: 'On back, knees to chest (low back rounded), arms overhead toward floor.', unit: 'cm to floor', fail: 'Much worse than #1 → lats' },
+    { id: 't3',  name: '3 · Pec drop', how: 'Edge of flat bench, arm out at shoulder height, palm up, hang. Pass: below bench level.', unit: 'pass/fail', fail: 'Pecs' },
+    { id: 't4a', name: '4a · External rotation', how: 'On back, upper arm 90° out, elbow 90°; forearm falls back. Repeat at ~135°.', unit: 'L / R', fail: 'Subscap / teres major → ER swap-in' },
+    { id: 't4b', name: '4b · Internal rotation', how: 'Same start, forearm rotates forward without the shoulder lifting. Compare sides.', unit: 'L / R', fail: 'High-elbow catch → IR swap-in' },
+    { id: 't5',  name: '5 · Thoracic rotation', how: 'Cross-legged, stick across shoulders, hips square. Rotate each way.', unit: 'L / R', fail: 'Body roll + breathing' },
+    { id: 't6',  name: '6 · Toe touch', how: 'Stand, knees straight, fold. Fingertip-to-floor (minus = past floor).', unit: 'cm', fail: 'Overall fold — tests 7–10 say why' },
+    { id: 't7',  name: '7 · Nerve check', how: 'Seated fold, tuck chin, pull toes up.', unit: 'yes/no', fail: 'Pull jumps/tingles → nerve tension: floss, don\'t force' },
+    { id: 't8',  name: '8 · Calf check', how: 'Toe touch with balls of feet on a 2–3 cm plate.', unit: 'cm', fail: 'Much worse than #6 → add calf stretch' },
+    { id: 't9',  name: '9 · Active compression', how: 'Sit, legs straight, hands beside knees. Lift both heels 2–3 cm, hold 3 s, no leaning back.', unit: 'pass/fail', fail: 'Hip-flexor strength → pike lifts' },
+    { id: 't10', name: '10 · Cradle test', how: 'Sit tall, hug one shin level to the chest, foot in opposite elbow. Pass: shin level + touching chest, back upright.', unit: 'L / R', fail: 'Hip ER in flexion — the main limiter. Knee pain = stop' }
+  ];
+
+  const STACK_A = [
+    { name: 'Doorway Pec Stretch + PIR', sub: 'assisted · press 30% 5 s, relax deeper 5 s · ribs down; front-shoulder pinch → lower the arm', scheme: '4 cycles × 2/side', vid: 'doorway pec stretch' },
+    { name: 'Foam-Roller T-Spine Extension', sub: 'upper back only · 3 breaths per segment · week 3+: stick in streamline', scheme: '2 × 6–8 spots', vid: 'foam roller thoracic extension' },
+    { name: 'Open Books', sub: 'side-lying, knees stacked 90° · exhale at end range', scheme: '2 × 8/side', vid: 'open book thoracic rotation' },
+    { name: 'Bench Lat Stretch + PIR', sub: 'kneel, elbows on bench, hips back, low back slightly rounded', scheme: '3 × 30 s', vid: 'bench lat stretch' },
+    { name: 'Prone Streamline Lift-offs', sub: 'resisted · light stick, forehead down, lift 3 s', scheme: '2 × 8', vid: 'prone streamline lift off' }
+  ];
+  const STACK_A_SWAPS = [
+    '4a failed → swap drill 2 or 3 for an overhead ER stretch: arm ~135°, 1–2 kg DB, 2 × 30–45 s/side',
+    '4b failed → swap drill 2 or 3 for active IR lifts: 3 s holds × 8, then light hand pressure 2 × 20 s. No forceful sleeper stretch'
+  ];
+  function stackB() {
+    const drill4 = MOB.stage >= 3
+      ? { name: 'Lying Leg-to-Shoulder', sub: 'stage 3 · hold the calf, foot flexed · shin outside and behind the shoulder', scheme: '3 × 20–30 s/side', vid: 'lying leg behind head prep' }
+      : { name: 'Weighted Standing Pike', sub: 'on a plate, 2.5–5 kg DBs · belly to thighs, pelvis tipped forward', scheme: '3 × 30 s', vid: 'weighted standing pike stretch' };
+    return [
+      { name: 'Strap Hamstring Stretch + PIR', sub: 'heel into strap 30% 5 s, relax deeper 5 s · test 8 failed → calf stretch first 2 × 45 s', scheme: '4–5 cycles × 2/leg', vid: 'strap hamstring stretch PNF' },
+      { name: '90/90 Lean + PIR', sub: 'flat back over the front shin · press knee down 5 s, relax deeper', scheme: '3 × 30 s/side', vid: '90 90 hip stretch' },
+      { name: 'Cradle Rocks', sub: '10 rocks then 30 s hold · back rounds → do it lying', scheme: '2/side', vid: 'cradle stretch hip' },
+      drill4,
+      { name: 'Seated Pike Leg Lifts', sub: 'resisted · hands beside knees, lift heels 3 s · progress hands toward feet', scheme: '2 × 6–8', vid: 'seated pike leg lifts compression' }
+    ];
+  }
+  const FOLD_STAGES = [
+    { n: 1, name: 'Pike foundation', target: 'Belly toward thighs, legs straight', gate: 'Palms flat in toe touch (test 6), flat-back hinge' },
+    { n: 2, name: 'Hip external rotation', target: 'Shin level on chest; square pigeon', gate: 'Test 10 passes both sides, no knee pain' },
+    { n: 3, name: 'One leg behind head, lying', target: 'Shin behind shoulder, then head', gate: '30 s each side, easy breathing, no knee/neck pain' },
+    { n: 4, name: 'Yoganidrasana', target: 'Both legs behind head, lying', gate: 'First attempts with a qualified yoga teacher' }
+  ];
+
+  // Schedule: 1× → Thu B (home, evening), Sat tests + A. 2× adds Mon A (home), Fri B (after lift, −1 set)
+  function mobForDay(dow) {
+    const out = [];
+    if (dow === 4) out.push({ stack: 'B', note: 'At home this evening · ~20–25 min' });
+    if (dow === 6) out.push({ stack: 'A', note: 'Run the tests first if due · ~20 min' });
+    if (MOB.freq === 2) {
+      if (dow === 1) out.push({ stack: 'A', note: '2nd session · at home this evening · one set fewer per drill' });
+      if (dow === 5) out.push({ stack: 'B', note: '2nd session · straight after lifting · one set fewer per drill' });
+    }
+    return out;
+  }
+
+  function lastTestDate() { return MOB.tests.length ? MOB.tests[MOB.tests.length - 1].d : null; }
+  function nextTestDate() {
+    const last = lastTestDate();
+    if (!last) return '2026-11-21';
+    const d = new Date(last); d.setDate(d.getDate() + 28); return d.toISOString().slice(0, 10);
+  }
+  function testsDue() { return todayStr() >= nextTestDate(); }
+
+  function drillList(drills, extraNote) {
+    const items = drills.map(ex => exerciseHTML(ex)).join('');
+    const setNote = (MODE === 'deload' || extraNote) ? `<p class="star-note">${MODE === 'deload' ? 'Deload: one set fewer per drill. ' : ''}${extraNote || ''}</p>` : '';
+    return `<ul class="ex-list">${items}</ul>${setNote}`;
+  }
+
+  function stackCard(which, opts) {
+    opts = opts || {};
+    const isA = which === 'A';
+    const title = isA ? 'Stack A · <em>streamline + catch</em>' : 'Stack B · <em>the fold</em>';
+    const sub = isA ? 'Shoulders · ~20 min · Sat (+ Mon home in 2× phase)' : `Hips + hamstrings · ~20–25 min · Thu home (+ Fri in 2× phase) · Stage ${MOB.stage}`;
+    const swaps = isA ? `<ul class="notes" style="margin-top:8px">${STACK_A_SWAPS.map(t => `<li>${t}</li>`).join('')}</ul>` : '';
+    return `
+      <div class="ab-block">
+        <div class="ab-header"><div class="ab-title">${title}</div><div class="ab-tag">${opts.tag || 'stack'}</div></div>
+        <p style="font-size:12px;color:var(--ink-muted);margin-bottom:6px">${sub}</p>
+        ${drillList(isA ? STACK_A : stackB(), opts.note)}
+        ${swaps}
+      </div>`;
+  }
+
+  function renderMobility() {
+    const el = document.getElementById('mobilitySection'); if (!el) return;
+    const last = MOB.tests[MOB.tests.length - 1], prev = MOB.tests[MOB.tests.length - 2];
+    const due = testsDue();
+    const rows = MOB_TESTS.map(t => {
+      const lv = last && last.r[t.id] ? last.r[t.id] : '—';
+      const pv = prev && prev.r[t.id] ? prev.r[t.id] : '—';
+      return `<li class="ex-item"><div class="ex-name">${t.name}<small>${t.how}<br><span style="color:var(--accent-dim)">Fails → ${t.fail}</span></small></div>
+        <div class="ex-right" style="flex-direction:column;align-items:flex-end;gap:4px">
+          <input class="field" style="width:96px;padding:6px 8px;font-size:12px" id="mt-${t.id}" placeholder="${t.unit}">
+          <span class="ex-scheme" style="font-size:10.5px">last ${lv} · prev ${pv}</span>
+        </div></li>`;
+    }).join('');
+    const pancakeHist = (DATA.lifts.pancake || []).slice(-3).reverse().map(h => `${h.w} cm (${fmtDate(h.d)})`).join(' · ');
+    const stages = FOLD_STAGES.map(st => {
+      const passed = MOB.stage > st.n, current = MOB.stage === st.n;
+      return `<li class="ex-item"><div class="ex-name">${passed ? '✓ ' : current ? '▶ ' : ''}${st.n}. ${st.name}<small>${st.target}<br>Gate: ${st.gate}${MOB.stageDates[st.n] ? ' · passed ' + fmtDate(MOB.stageDates[st.n]) : ''}</small></div>
+        <div class="ex-right">${current && st.n < 4 ? `<button class="log-toggle" onclick="mobPassStage(${st.n})">Gate passed</button>` : ''}</div></li>`;
+    }).join('');
+
+    el.innerHTML = `
+      <div class="card">
+        <div class="card-label">Mobility · two stacks, tested every 4 weeks</div>
+        <p style="font-size:13.5px;color:var(--ink-dim);line-height:1.5;margin-bottom:12px">
+          Stretching is training load. Each stack 1–2× a week at <strong style="color:var(--ink)">4–6/10</strong>, never the day after lifting the same area, never as "active recovery".
+        </p>
+        <div class="mode-switch" style="grid-template-columns:1fr 1fr;margin-bottom:6px">
+          <button class="mode-btn ${MOB.freq === 1 ? 'active' : ''}" onclick="mobSetFreq(1)">1× / week</button>
+          <button class="mode-btn ${MOB.freq === 2 ? 'active' : ''}" onclick="mobSetFreq(2)">2× / week</button>
+        </div>
+        <p class="star-note" style="margin-top:0">1× until Dec 18 · 2× through the holidays if lifts hold · back to 1× for the Jan–Feb cut</p>
+        ${stackCard('A')}
+        ${stackCard('B')}
+        <div class="insight"><strong>Dose:</strong> PIR = press ~30% for 5 s, relax deeper 5 s, 4–5 rounds. Strength holds = 3 s × 6–8. Progress one thing at a time once all sets feel easy 2 sessions running.</div>
+        <div class="insight"><strong>Stop signs:</strong> shoulder pinch = joint, change angle · low back arching in streamline = borrowed range · tingling down a leg = nerve, floss don't hold · <strong>knee pain in any hip drill = stop</strong>.</div>
+      </div>
+
+      <div class="card">
+        <div class="card-label">Fold stages · legs behind head</div>
+        <ul class="ex-list">${stages}</ul>
+        <p class="star-note">Stage 3 swaps the weighted pike for lying leg-to-shoulder automatically. Expect months to years.</p>
+      </div>
+
+      <div class="card ${due ? 'checkin' : ''}">
+        <div class="card-label">Mobility tests · ${due ? '<span style="color:var(--accent)">DUE NOW</span>' : 'next ' + fmtDate(nextTestDate())}</div>
+        <p style="font-size:13px;color:var(--ink-dim);margin-bottom:10px">Cold, before any warm-up, Saturday morning. Worst result gets priority in the stacks. Log a number, pass/fail or L/R.</p>
+        <ul class="ex-list">${rows}</ul>
+        <button class="btn" style="width:100%;margin-top:12px" onclick="mobSaveTests()">Save test results</button>
+        <p class="star-note">${MOB.tests.length} test day(s) logged${pancakeHist ? ' · Pancake (archived): ' + pancakeHist : ''}</p>
+      </div>`;
+  }
+
+  function mobSaveTests() {
+    const r = {}; let any = false;
+    MOB_TESTS.forEach(t => { const v = document.getElementById('mt-' + t.id).value.trim(); if (v) { r[t.id] = v; any = true; } });
+    if (!any) { toast('Enter at least one result'); return; }
+    const d = todayStr();
+    MOB.tests = MOB.tests.filter(x => x.d !== d); MOB.tests.push({ d, r }); MOB.tests.sort((a, b) => a.d.localeCompare(b.d));
+    mobSave(); renderMobility(); toast('Tests saved · next in 4 weeks');
+  }
+  function mobPassStage(n) {
+    if (!confirm('Mark stage ' + n + ' gate as passed?')) return;
+    MOB.stageDates[n] = todayStr(); MOB.stage = n + 1; mobSave(); renderMobility(); renderToday(); toast('Stage ' + (n + 1) + ' unlocked');
+  }
+  function mobSetFreq(f) { MOB.freq = f; mobSave(); renderMobility(); renderToday(); toast(f + '× per week'); }
+
   const DAY_NAMES = ['SUN','MON','TUE','WED','THU','FRI','SAT'];
   const DAY_FULL = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
 
@@ -1795,6 +1883,15 @@
   }
 
   function renderToday() {
+    _renderTodayBase();
+    const mob = mobForDay(activeDay);
+    if (mob.length) {
+      const c = document.getElementById('todayWorkout');
+      c.insertAdjacentHTML('beforeend', `<div class="card day-content"><div class="card-label">Mobility · ${activeDay === todayDow ? 'today' : DAY_FULL[activeDay]}</div>${mob.map(m => stackCard(m.stack, { tag: 'today', note: m.note })).join('')}${activeDay === 6 && testsDue() ? '<div class="insight"><strong>Tests due:</strong> run them cold before Stack A — see the tests card below.</div>' : ''}</div>`);
+    }
+  }
+
+  function _renderTodayBase() {
     let plan = (MODE === 'travel' ? TRAVEL_PLAN : PLAN)[activeDay];
     const container = document.getElementById('todayWorkout');
     const dayLabel = activeDay === todayDow ? 'Today · ' + DAY_FULL[activeDay] : DAY_FULL[activeDay];
@@ -1920,6 +2017,7 @@
   renderDaySelector();
   renderToday();
   renderCheckin();
+  renderMobility();
 
   document.getElementById('weight-input').addEventListener('keypress', e => {
     if (e.key === 'Enter') logWeight();
