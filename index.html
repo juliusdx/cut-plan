@@ -965,13 +965,16 @@
       <strong>Progression rule (double progression):</strong> pick a weight. When you hit the <em>top</em> of the rep range on every set, add 2.5 kg next session and drop back to the bottom of the range. Log every ★ lift — that's how we'll see whether strength is coming back.
     </div>
     <div class="insight">
-      <strong>One non-negotiable cardio:</strong> Norwegian 4×4 on the rower, once a week (Wed). It improves glucose control — directly relevant while the HbA1c question is open.
+      <strong>One non-negotiable cardio:</strong> Norwegian 4×4 on the rower, once a week (Wed). Best value for heart health and VO₂max. (HbA1c back to 5.5% in Oct — resolved.)
     </div>
     <div class="insight">
       <strong>Train closer to failure:</strong> with volume trimmed, every set matters. Aim for the last 2 reps of each set to be genuinely hard (1–2 reps in reserve). Junk volume past ~15 sets per muscle per week adds fatigue without growth — quality beats quantity here.
     </div>
     <div class="insight">
       <strong>Hybrid structure:</strong> Main compound lifts (squat, bench, RDL, row) are done alone with full rest. Accessories pair non-competing muscles. Each session ~50–60 min instead of 75+. Faster sessions, better recovery, same stimulus.
+    </div>
+    <div class="insight">
+      <strong>Sleep basics:</strong> same wake time daily (weekends too) · no caffeine after 12pm · 4×4 / lifting done ≥3h before bed · last big meal 2–3h before bed with some carbs · room cool + dark · phone out of the bedroom.
     </div>
     <div class="insight">
       <strong>Schedule:</strong> Mon Upper A · Tue Lower A · Thu Upper B · Fri Lower B. Wed and Sat are flex (cardio, pickleball, or rest). Sunday rest. Skip a day = no catch-up, just resume.
@@ -990,7 +993,7 @@
       <li><strong>Target: weight stable ±0.5 kg</strong> after the first 1–2 weeks of water gain</li>
       <li><strong>Food scale for the first 2 weeks.</strong> Find out what you actually eat — this calibrates the next cut</li>
       <li><strong>Carbs: some at dinner</strong> — often helps sleep onset</li>
-      <li><strong>Favour slow carbs</strong> (rice portions, oats, fruit) over sugary ones while HbA1c is unresolved</li>
+      <li><strong>Carbs: no special restriction</strong> — HbA1c 5.5% (Oct). Recheck ~April</li>
       <li><strong>Waist weekly.</strong> If it climbs above 33", drop 150 kcal</li>
       <li><strong>Reassess at week 8.</strong> Then decide: final cut or stay</li>
     </ul>
@@ -1416,7 +1419,7 @@
           rest: '60s after both',
           exercises: [
             { name: 'Hip Thrust', sub: 'glute-dominant', scheme: '3 × 8–10' },
-            { name: 'Weighted Push-ups', sub: 'plate on back or band', scheme: '3 × 10–15' }
+            { name: 'Deficit Push-ups', sub: 'hands on DBs/handles, feet on bench · 3s down · if 15+ easy: machine chest press 3 × 8–12', scheme: '3 × 8–15' }
           ]
         },
         {
@@ -1431,7 +1434,6 @@
         {
           type: 'finisher',
           exercises: [
-            { name: 'Reverse Lunges', sub: 'easier on knees than walking', scheme: '2 × 10/leg' },
             { name: 'Standing Calf Raise', sub: 'straight-leg · 2s pause in deep stretch, 1s up, 3s down · no bouncing', scheme: '4 × 10–15', star: true, log: 'calf' }
           ]
         }
@@ -1497,7 +1499,15 @@
             { name: 'Leg-Press Calf Raise', sub: 'straight-leg · 2s pause at stretch · do these FIRST once a week', scheme: '4 × 12–15' }
           ]
         }
-      ]
+      ],
+      abs: {
+        title: 'Ab Day C · Obliques',
+        tag: '~8 min · 45s rest',
+        exercises: [
+          { name: 'Cable Woodchop', sub: 'high-to-low, rotate through trunk not arms', scheme: '3 × 10/side' },
+          { name: 'Side Plank', sub: 'top leg raised when easy', scheme: '3 × 30–45s/side' }
+        ]
+      }
     },
     5: { // Friday — Lower B (rotated variations)
       title: 'Lower B · <em>hypertrophy</em>',
@@ -1509,7 +1519,7 @@
           type: 'main',
           exercises: [
             { name: 'Leg Press', sub: 'main lift, full depth', scheme: '4 × 8–12', star: true, log: 'legpress', rest: '2 min' },
-            { name: 'Single-Leg RDL', sub: 'DB, balance + hamstrings', scheme: '3 × 8/leg', rest: '75s' }
+            { name: 'Single-Leg RDL', sub: 'DB, balance + hamstrings · trimmed', scheme: '2 × 8/leg', rest: '75s' }
           ]
         },
         {
@@ -1517,7 +1527,7 @@
           label: 'Superset A · quads + lower abs',
           rest: '60s after both',
           exercises: [
-            { name: 'Goblet Squat', sub: 'heels elevated, slow', scheme: '3 × 10–12' },
+            { name: 'Goblet Squat', sub: 'heels elevated, slow · trimmed', scheme: '2 × 10–12' },
             { name: 'Hanging Knee Raise w/ Twist', sub: 'obliques + lower abs', scheme: '3 × 10/side' }
           ]
         },
