@@ -977,7 +977,7 @@
       <strong>Sleep basics:</strong> same wake time daily (weekends too) · no caffeine after 12pm · 4×4 / lifting done ≥3h before bed · last big meal 2–3h before bed with some carbs · room cool + dark · phone out of the bedroom.
     </div>
     <div class="insight">
-      <strong>Schedule:</strong> Mon Upper A · Tue Lower A · Thu Upper B · Fri Lower B. Wed and Sat are flex (cardio, pickleball, or rest). Sunday rest. Skip a day = no catch-up, just resume.
+      <strong>Schedule:</strong> Mon Upper A · Tue Legs (only leg day) · Wed 4×4 · Thu Upper B · Fri Zone 2 + abs · Sat optional easy swim/walk + Stack A. Sunday pickleball/rest. Review: if squat drops >10% in 6 weeks, add sets back. Skip a day = no catch-up, just resume.
     </div>
   </div>
 
@@ -1400,40 +1400,34 @@
         }
       ]
     },
-    2: { // Tuesday — Lower A
-      title: 'Lower A · <em>strength</em>',
-      subtitle: 'Squat/RDL mains + fresh accessories · 60–70 min',
+    2: { // Tuesday — Legs (only leg day this block)
+      title: 'Legs · <em>the one leg day</em>',
+      subtitle: 'Squat/RDL mains + leg press · ~50 min',
       type: 'lift',
-      priority: 'Strength rebuild · add reps, then weight',
+      priority: 'Hold leg strength on half the volume · last 2 reps hard',
       blocks: [
         {
           type: 'main',
           exercises: [
-            { name: 'Back Squat', sub: 'main lift, full rest', scheme: '4 × 5–7', star: true, log: 'squat', rest: '2–3 min' },
+            { name: 'Back Squat', sub: 'main lift, full rest', scheme: '3 × 5–7', star: true, log: 'squat', rest: '2–3 min' },
             { name: 'Romanian Deadlift', sub: 'second main, full rest', scheme: '3 × 6–8', star: true, log: 'rdl', rest: '2 min' }
           ]
         },
         {
           type: 'superset',
-          label: 'Superset A · glutes + chest',
+          label: 'Superset A · quads + chest',
           rest: '60s after both',
           exercises: [
-            { name: 'Hip Thrust', sub: 'glute-dominant', scheme: '3 × 8–10' },
+            { name: 'Leg Press', sub: 'full depth', scheme: '2 × 10–12', star: true, log: 'legpress' },
             { name: 'Deficit Push-ups', sub: 'hands on DBs/handles, feet on bench · 3s down · if 15+ easy: machine chest press 3 × 8–12', scheme: '3 × 8–15' }
           ]
         },
         {
           type: 'superset',
-          label: 'Superset B · hamstrings + back',
+          label: 'Superset B · hamstrings + calves',
           rest: '45s after both',
           exercises: [
-            { name: 'Lying Leg Curl', sub: 'hamstrings, 3s lowering', scheme: '3 × 10–12' },
-            { name: 'Chest-Supported Row', sub: 'mid-back (non-competing)', scheme: '3 × 10–12' }
-          ]
-        },
-        {
-          type: 'finisher',
-          exercises: [
+            { name: 'Lying Leg Curl', sub: 'hamstrings, 3s lowering', scheme: '2 × 10–12' },
             { name: 'Standing Calf Raise', sub: 'straight-leg · 2s pause in deep stretch, 1s up, 3s down · no bouncing', scheme: '4 × 10–15', star: true, log: 'calf' }
           ]
         }
@@ -1509,35 +1503,17 @@
         ]
       }
     },
-    5: { // Friday — Lower B (rotated variations)
-      title: 'Lower B · <em>hypertrophy</em>',
-      subtitle: 'New variations · legs + core · 50–60 min',
+    5: { // Friday — Zone 2 cardio + abs (replaces Lower B)
+      title: 'Zone 2 · <em>cardio + abs</em>',
+      subtitle: 'Easy aerobic · ~60 min total',
       type: 'lift',
-      priority: 'Volume focus · last 2 reps should be hard',
+      priority: 'HR 109–127 · conversational · finish ≥3h before bed',
       blocks: [
         {
           type: 'main',
           exercises: [
-            { name: 'Leg Press', sub: 'main lift, full depth', scheme: '4 × 8–12', star: true, log: 'legpress', rest: '2 min' },
-            { name: 'Single-Leg RDL', sub: 'DB, balance + hamstrings · trimmed', scheme: '2 × 8/leg', rest: '75s' }
-          ]
-        },
-        {
-          type: 'superset',
-          label: 'Superset A · quads + lower abs',
-          rest: '60s after both',
-          exercises: [
-            { name: 'Goblet Squat', sub: 'heels elevated, slow · trimmed', scheme: '2 × 10–12' },
-            { name: 'Hanging Knee Raise w/ Twist', sub: 'obliques + lower abs', scheme: '3 × 10/side' }
-          ]
-        },
-        {
-          type: 'superset',
-          label: 'Superset B · hamstrings + calves',
-          rest: '45s after both',
-          exercises: [
-            { name: 'Seated Leg Curl', sub: 'hamstrings', scheme: '3 × 12–15' },
-            { name: 'Seated Calf Raise', sub: 'bent-knee (soleus) · 2s pause at stretch · last set: partials to failure', scheme: '4 × 12–15' }
+            { name: 'Incline Walk or Easy Swim', sub: 'treadmill 12% @ 5.5–6 km/h, or easy freestyle · stay in Zone 2', scheme: '40–45 min' },
+            { name: 'Seated Calf Raise', sub: 'bent-knee (soleus) · 2s pause at stretch', scheme: '3 × 12–15' }
           ]
         }
       ],
